@@ -1,6 +1,5 @@
-// components/Registration.js
 import React, { useState } from 'react';
-import axios from 'axios'; // Import your Axios instance for making API requests
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 const Registration = () => {
@@ -20,7 +19,7 @@ const Registration = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     try {
       // Send the registration data to the backend for processing
       const response = await axios.post('/api/register', formData);
@@ -32,9 +31,19 @@ const Registration = () => {
     }
   };
 
+  // Define a mapping of roles to registration headings
+  const roleHeadings = {
+    student: 'Student Registration',
+    guide: 'Guide Registration',
+    university: 'University Registration',
+  };
+
+  // Determine the registration heading based on the selected role
+  const registrationHeading = roleHeadings[formData.role] || 'Registration';
+
   return (
     <div className="container mx-auto mt-8">
-      <h2 className="text-2xl font-bold mb-4">Registration</h2>
+      <h2 className="text-2xl font-bold mb-4">{registrationHeading}</h2>
       <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
         <div className="mb-4">
           <label className="block text-gray-700">Role:</label>
