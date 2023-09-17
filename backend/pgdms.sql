@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2023 at 12:05 PM
+-- Generation Time: Sep 17, 2023 at 08:43 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -85,7 +85,31 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (21, 'Can add user', 6, 'add_user'),
 (22, 'Can change user', 6, 'change_user'),
 (23, 'Can delete user', 6, 'delete_user'),
-(24, 'Can view user', 6, 'view_user');
+(24, 'Can view user', 6, 'view_user'),
+(25, 'Can add dissertation', 7, 'add_dissertation'),
+(26, 'Can change dissertation', 7, 'change_dissertation'),
+(27, 'Can delete dissertation', 7, 'delete_dissertation'),
+(28, 'Can view dissertation', 7, 'view_dissertation');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `dissertations`
+--
+
+CREATE TABLE `dissertations` (
+  `article_id` int(11) NOT NULL,
+  `title` varchar(256) NOT NULL,
+  `author_name` varchar(100) NOT NULL,
+  `journal_name` varchar(100) NOT NULL,
+  `institute` varchar(256) NOT NULL,
+  `abstract` longtext NOT NULL,
+  `medical_system` varchar(50) NOT NULL,
+  `category` varchar(50) NOT NULL,
+  `disease_related` varchar(256) NOT NULL,
+  `keywords` varchar(256) NOT NULL,
+  `full_paper` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -126,6 +150,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (2, 'auth', 'permission'),
 (6, 'authentication', 'user'),
 (4, 'contenttypes', 'contenttype'),
+(7, 'dissertation', 'dissertation'),
 (5, 'sessions', 'session');
 
 -- --------------------------------------------------------
@@ -164,7 +189,10 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (16, 'admin', '0001_initial', '2023-09-17 08:51:06.124145'),
 (17, 'admin', '0002_logentry_remove_auto_add', '2023-09-17 08:51:06.135401'),
 (18, 'admin', '0003_logentry_add_action_flag_choices', '2023-09-17 08:51:06.144020'),
-(19, 'sessions', '0001_initial', '2023-09-17 08:51:06.208327');
+(19, 'sessions', '0001_initial', '2023-09-17 08:51:06.208327'),
+(20, 'dissertation', '0001_initial', '2023-09-17 18:34:24.081890'),
+(21, 'dissertation', '0002_alter_dissertation_table', '2023-09-17 18:37:56.214648'),
+(22, 'dissertation', '0003_alter_dissertation_options', '2023-09-17 18:38:47.976265');
 
 -- --------------------------------------------------------
 
@@ -177,6 +205,21 @@ CREATE TABLE `django_session` (
   `session_data` longtext NOT NULL,
   `expire_date` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `django_session`
+--
+
+INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
+('4rcbnugchonsz35f9701xim61ao8l9m0', '.eJxVjEEOwiAQRe_C2hAYKIhL9z1DMzCDVA0kpV0Z765NutDtf-_9l5hwW8u0dV6mmcRFaDBWnH7niOnBdWd0x3prMrW6LnOUuyIP2uXYiJ_Xw_07KNjLt_YuoLOgmZyKoFM4gzcImQIpBhPJQQZOAxBmtnZQSYH3VochZqOiFe8PRw44Kw:1qhv3g:8kECv7W6Ub0M_Pvlc3psZrFLgmlQxEMgQBVgSLZBAFo', '2023-10-01 16:55:44.013524'),
+('hdnt5eoa5b1up36pvkgd1gu4kkkjp40f', '.eJxVjEEOwiAQRe_C2hAYKIhL9z1DMzCDVA0kpV0Z765NutDtf-_9l5hwW8u0dV6mmcRFaDBWnH7niOnBdWd0x3prMrW6LnOUuyIP2uXYiJ_Xw_07KNjLt_YuoLOgmZyKoFM4gzcImQIpBhPJQQZOAxBmtnZQSYH3VochZqOiFe8PRw44Kw:1qhv3f:T5BlTwaXftDrfhzCqSBLg4rESv_kz9UvcDkP6hlVeqA', '2023-10-01 16:55:43.694791'),
+('hjsf1yiqqstnipmua5q77ts3yss0vsyu', '.eJxVjEEOwiAQRe_C2hAYioBL9z0DmRmoVA0kpV0Z765NutDtf-_9l4i4rSVuPS9xTuIiNJjBitPvTsiPXHeY7lhvTXKr6zKT3BV50C7HlvLzerh_BwV7-dZnsh7MNLC2AwM7CM4EToSeVPAaUdvgAyoEVgbT5B0RqUzG2wwZtXh_AHF8OPA:1qhux5:gTbw3RxhVyfW_8jl8a4NCFQLvotjwlUX8jIuUt00I9c', '2023-10-01 16:48:55.001702'),
+('l0qs5vvrgj357r1a5grx5qm5d5iojq0p', '.eJxVjEEOwiAQRe_C2hAYKIhL9z1DMzCDVA0kpV0Z765NutDtf-_9l5hwW8u0dV6mmcRFaDBWnH7niOnBdWd0x3prMrW6LnOUuyIP2uXYiJ_Xw_07KNjLt_YuoLOgmZyKoFM4gzcImQIpBhPJQQZOAxBmtnZQSYH3VochZqOiFe8PRw44Kw:1qhv3e:2_K8idtA4N2DyZFci9G_8R1nAtMl8Noyt3oHR8dwVqo', '2023-10-01 16:55:42.244444'),
+('mz6xyj4dtnbq0339zgp79y5kvsk1on9t', '.eJxVjEEOwiAQRe_C2hAYKIhL9z1DMzCDVA0kpV0Z765NutDtf-_9l5hwW8u0dV6mmcRFaDBWnH7niOnBdWd0x3prMrW6LnOUuyIP2uXYiJ_Xw_07KNjLt_YuoLOgmZyKoFM4gzcImQIpBhPJQQZOAxBmtnZQSYH3VochZqOiFe8PRw44Kw:1qhv3N:Pzi0C8Vv0idQqhi0PJpACTuATSz9pQvm2UASX6Qpu1c', '2023-10-01 16:55:25.466674'),
+('nkbyll4og6gxm91u6e7qe02itohyz1wg', '.eJxVjEEOwiAQRe_C2hAYKIhL9z1DMzCDVA0kpV0Z765NutDtf-_9l5hwW8u0dV6mmcRFaDBWnH7niOnBdWd0x3prMrW6LnOUuyIP2uXYiJ_Xw_07KNjLt_YuoLOgmZyKoFM4gzcImQIpBhPJQQZOAxBmtnZQSYH3VochZqOiFe8PRw44Kw:1qhv3H:f_Cqi_UWmjdLBwmsSm5Pq16ajsxv4A8qcD98H34SIOQ', '2023-10-01 16:55:19.483513'),
+('p7b9nk6cz3h8sdgup01iwqkau4e1jvg7', '.eJxVjEEOwiAQRe_C2hAYKIhL9z1DMzCDVA0kpV0Z765NutDtf-_9l5hwW8u0dV6mmcRFaDBWnH7niOnBdWd0x3prMrW6LnOUuyIP2uXYiJ_Xw_07KNjLt_YuoLOgmZyKoFM4gzcImQIpBhPJQQZOAxBmtnZQSYH3VochZqOiFe8PRw44Kw:1qhv22:4du36LOSiZB8N14Ba-7HnZ1KcMxPIAAj_wv8TcNxBPk', '2023-10-01 16:54:02.226012'),
+('s1h28k9fd44uxxdfq8v0a9gkhl98gkha', '.eJxVjEEOwiAQRe_C2hAYKIhL9z1DMzCDVA0kpV0Z765NutDtf-_9l5hwW8u0dV6mmcRFaDBWnH7niOnBdWd0x3prMrW6LnOUuyIP2uXYiJ_Xw_07KNjLt_YuoLOgmZyKoFM4gzcImQIpBhPJQQZOAxBmtnZQSYH3VochZqOiFe8PRw44Kw:1qhv4y:8ku8wzTSbBEvhiHQ6U-HcjqRzkvcW0J_DZl902aUIZ4', '2023-10-01 16:57:04.614837'),
+('zpqrkl4tmbfm8ccvf59hauo4xwdcz3mb', '.eJxVjEEOwiAQRe_C2hAYKIhL9z1DMzCDVA0kpV0Z765NutDtf-_9l5hwW8u0dV6mmcRFaDBWnH7niOnBdWd0x3prMrW6LnOUuyIP2uXYiJ_Xw_07KNjLt_YuoLOgmZyKoFM4gzcImQIpBhPJQQZOAxBmtnZQSYH3VochZqOiFe8PRw44Kw:1qhv3f:T5BlTwaXftDrfhzCqSBLg4rESv_kz9UvcDkP6hlVeqA', '2023-10-01 16:55:43.408479');
 
 -- --------------------------------------------------------
 
@@ -196,6 +239,14 @@ CREATE TABLE `users` (
   `name` varchar(100) NOT NULL,
   `role` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`password`, `last_login`, `is_superuser`, `email`, `is_staff`, `is_active`, `date_joined`, `user_id`, `name`, `role`) VALUES
+('pbkdf2_sha256$390000$Zo0M30EwsLZ8e9ViED01FV$EGQ8RL64P/DpYYMMCP9025gzfyROgNaY5IAK6bsLol8=', '2023-09-17 16:57:04.312614', 0, 'chanmeetsinghsahni@gmail.com', 0, 1, '2023-09-17 16:47:14.945604', '1234', 'Chanmeet Singh Sahni', 'STUDENT'),
+('pbkdf2_sha256$390000$L5td1fBX9s67ODAr7qWElB$M3d1ZPIRYYgV/0JVo1FzRDDIL7VREZBa0N271Fhsnsk=', '2023-09-17 16:48:54.984992', 1, 'c@gmail.com', 1, 1, '2023-09-17 16:48:30.264755', '12345', 'chanm', 'SUPERUSER');
 
 -- --------------------------------------------------------
 
@@ -246,6 +297,12 @@ ALTER TABLE `auth_group_permissions`
 ALTER TABLE `auth_permission`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `auth_permission_content_type_id_codename_01ab375a_uniq` (`content_type_id`,`codename`);
+
+--
+-- Indexes for table `dissertations`
+--
+ALTER TABLE `dissertations`
+  ADD PRIMARY KEY (`article_id`);
 
 --
 -- Indexes for table `django_admin_log`
@@ -317,7 +374,7 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `django_admin_log`
@@ -329,13 +386,13 @@ ALTER TABLE `django_admin_log`
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `users_groups`

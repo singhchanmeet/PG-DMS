@@ -5,7 +5,9 @@ import { useNavigate } from 'react-router-dom';
 const Registration = () => {
   const [formData, setFormData] = useState({
     role: '',
-    username: '',
+    name: '',
+    email: '',
+    user_id: '',
     password: '',
     // Add more fields as needed for each user type
   });
@@ -22,7 +24,7 @@ const Registration = () => {
 
     try {
       // Send the registration data to the backend for processing
-      const response = await axios.post('/api/register', formData);
+      const response = await axios.post('http://localhost:8000/auth/signup/', formData);
       console.log('Registration successful:', response.data);
       // Redirect to the login page after successful registration
       navigate('/login');
@@ -33,9 +35,9 @@ const Registration = () => {
 
   // Define a mapping of roles to registration headings
   const roleHeadings = {
-    student: 'Student Registration',
-    guide: 'Guide Registration',
-    university: 'University Registration',
+    STUDENT: 'Student Registration',
+    GUIDE: 'Guide Registration',
+    UNIVERSITY: 'University Registration',
   };
 
   // Determine the registration heading based on the selected role
@@ -54,17 +56,37 @@ const Registration = () => {
             className="border border-gray-300 rounded px-4 py-2 w-full"
           >
             <option value="">Select Role</option>
-            <option value="student">PG Student</option>
-            <option value="guide">Guide</option>
-            <option value="university">University</option>
+            <option value="STUDENT">PG Student</option>
+            <option value="GUIDE">Guide</option>
+            <option value="UNIVERSITY">University</option>
           </select>
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700">Username:</label>
+          <label className="block text-gray-700">Name:</label>
           <input
             type="text"
-            name="username"
-            value={formData.username}
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="border border-gray-300 rounded px-4 py-2 w-full"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700">Email ID:</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="border border-gray-300 rounded px-4 py-2 w-full"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-700">User ID:</label>
+          <input
+            type="text"
+            name="user_id"
+            value={formData.user_id}
             onChange={handleChange}
             className="border border-gray-300 rounded px-4 py-2 w-full"
           />

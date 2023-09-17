@@ -6,7 +6,7 @@ const Login = ({ setLoggedInUser }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('/api/login/', credentials);
+      const response = await axios.post('http://localhost:8000/auth/login/', credentials);
       
       if (response.data.access_token) {
         // Token received upon successful login
@@ -25,7 +25,8 @@ const Login = ({ setLoggedInUser }) => {
         // setLoggedInUser(userResponse.data);
 
         // Update the loggedInUser state (you can also store more user information)
-        setLoggedInUser({ accessToken });
+        // setLoggedInUser({ accessToken });
+        console.log('Logged in with token:', accessToken);
       }
     } catch (error) {
       console.error('Login failed:', error);
