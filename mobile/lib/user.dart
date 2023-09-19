@@ -49,13 +49,14 @@ class User {
 
   // a named constructor we will use while creating object from map
   // also since the map is coming from response, thats why we are taking user_id from map instead of taking userId from map
+  // ? ?? '' this is null safety, when we dont provide a value default is empty string
   factory User.fromMap(Map<String, dynamic> map) {
     return User(
-      userId: map['user_id'] as String,
-      name: map['name'] as String,
-      role: map['role'] as String,
-      email: map['email'] as String,
-      password: map['password'] as String,
+      userId: map['user_id'] as String? ?? '',
+      name: map['name'] as String? ?? '',
+      role: map['role'] as String? ?? '',
+      email: map['email'] as String? ?? '',
+      password: map['password'] as String? ?? '',
     );
   }
 

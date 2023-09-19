@@ -53,7 +53,10 @@ class Logout(APIView):
 
 class UserDetails(APIView):
     # only authenticated users can access this view
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
+
+    # Get request from flutter working with hardcoded values of username and role. 
+    # TO DO: login the user from flutter too so that we can access request.user
 
     def get(self, request):
         username = request.user.name

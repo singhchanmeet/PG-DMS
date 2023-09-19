@@ -39,7 +39,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Client client = http.Client();
 
-  List<User> users = []; // List of Users
+  User currentUser = User.fromMap({}); // making current user object
 
   // starting with _ means this is a private function
   void _addUser() {}
@@ -52,14 +52,11 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _retrieveUsers() async {
-    users = []; //initializing to empty then we will append
-    List response = json.decode(
+    Map<String, dynamic> response = json.decode(
         (await client.get(retrieveUrl)).body); // taking response in json format
-    // iterating through response
-    response.forEach((element) {
-      users.add(User.fromMap(
-          element)); //creating a User object from each element using the fromMap constructor defined in data class; and adding that user to our list of Users named users.
-    });
+    //creating a User object using the fromMap constructor defined in data class
+    currentUser =
+        User.fromMap({'name': response['username'], 'role': response['role']});
     setState(
         () {}); // this calls the build method again because the state has just changed
   }
@@ -70,12 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: ListView.builder(
-        itemCount: users.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(title: Text(users[index].name));
-        },
-      ),
+      body: Text(currentUser.name),
       floatingActionButton: FloatingActionButton(
         onPressed: _addUser,
         tooltip: 'Increment',
