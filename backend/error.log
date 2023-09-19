@@ -1,0 +1,57 @@
+Internal Server Error: /auth/user-details/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\authentication\views.py", line 58, in get
+    username = request.user.name
+               ^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUser' object has no attribute 'name'
+"GET /auth/user-details/ HTTP/1.1" 500 93241
+Invalid HTTP_HOST header: '192.168.1.36:8000'. You may need to add '192.168.1.36' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\utils\deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\http\request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.36:8000'. You may need to add '192.168.1.36' to ALLOWED_HOSTS.
+Invalid HTTP_HOST header: '192.168.1.36:8000'. You may need to add '192.168.1.36' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\utils\deprecation.py", line 135, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\middleware\common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\http\request.py", line 148, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.1.36:8000'. You may need to add '192.168.1.36' to ALLOWED_HOSTS.
