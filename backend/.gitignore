@@ -2,4 +2,5 @@
 
 # python virtual env
 /myenv
+**/__pycache__/
 

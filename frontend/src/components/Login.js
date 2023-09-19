@@ -7,7 +7,7 @@ const Login = ({ setLoggedInUser }) => {
    const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:8000/auth/login/', credentials);
-      
+  
       if (response.data.access_token) {
         // Token received upon successful login
         const accessToken = response.data.access_token;
@@ -17,13 +17,8 @@ const Login = ({ setLoggedInUser }) => {
   
         // Set the Axios Authorization header for future requests
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-  
-        // Fetch the user data (UserDetails) from your API
-        const userResponse = await axios.get('http://localhost:8000/auth/user-details/'); // Adjust the API URL as needed
-  
         // Pass user details to the Dashboard component
-        navigate('/dashboard', { state: { user: userResponse.data } });
-
+        navigate('/dashboard');
       }
     } catch (error) {
       console.error('Login failed:', error);
