@@ -1,37 +1,35 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import {useNavigate} from 'react-router-dom'
 const Login = ({ setLoggedInUser }) => {
   const [credentials, setCredentials] = useState({ user_id: '', password: '' });
-
-  const handleLogin = async () => {
+   const navigate = useNavigate();
+   const handleLogin = async () => {
     try {
       const response = await axios.post('http://localhost:8000/auth/login/', credentials);
       
       if (response.data.access_token) {
         // Token received upon successful login
         const accessToken = response.data.access_token;
-
+  
         // Store the access token in localStorage
         localStorage.setItem('accessToken', accessToken);
-
+  
         // Set the Axios Authorization header for future requests
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+  
+        // Fetch the user data (UserDetails) from your API
+        const userResponse = await axios.get('http://localhost:8000/auth/user-details/'); // Adjust the API URL as needed
+  
+        // Pass user details to the Dashboard component
+        navigate('/dashboard', { state: { user: userResponse.data } });
 
-        // Fetch the user data if needed and set it in the state
-        // You can add a separate API endpoint for this or modify the login view
-        // to return user data in the response.
-        // const userResponse = await axios.get('/api/user/');
-        // setLoggedInUser(userResponse.data);
-
-        // Update the loggedInUser state (you can also store more user information)
-        // setLoggedInUser({ accessToken });
-        console.log('Logged in with token:', accessToken);
       }
     } catch (error) {
       console.error('Login failed:', error);
     }
   };
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center">

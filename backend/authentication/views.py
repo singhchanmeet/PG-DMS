@@ -56,4 +56,5 @@ class UserDetails(APIView):
 
     def get(self, request):
         username = request.user.name
-        return Response({'username': username}, status=status.HTTP_200_OK)
+        role = request.user.role
+        return Response({'username': username, 'role' : role }, status=status.HTTP_200_OK)
