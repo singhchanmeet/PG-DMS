@@ -35,7 +35,7 @@ class Dissertation(models.Model):
         FUNDAMENTAL_RESEARCH  = "FUNDAMENTAL_RESEARCH" , 'Fundamental Research'
         DRUG_RESEARCH  = "DRUG_RESEARCH" , 'Drug Research'
 
-    article_id = models.IntegerField(primary_key=True)
+    article_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=256)
     author_name = models.CharField(max_length=100)
     journal_name = models.CharField(max_length=100)
