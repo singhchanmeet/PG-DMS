@@ -1,6 +1,6 @@
 import React from 'react';
 import DissertationList from './DissertationList'; // Adjust the import path as needed
-import DissertationDetail from './DissertationDetail'; // Adjust the import path as needed
+import DissertationDetail from './DissertationDetails'; // Adjust the import path as needed
 import DissertationForm from './DissertationForm'; // Adjust the import path as needed
 
 const StudentDashboard = () => {

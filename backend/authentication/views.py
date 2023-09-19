@@ -53,7 +53,7 @@ class Logout(APIView):
 
 class UserDetails(APIView):
     # only authenticated users can access this view
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         username = request.user.name
