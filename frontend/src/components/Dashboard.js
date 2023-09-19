@@ -4,7 +4,12 @@ import GuideDashboard from './GuideDashboard';
 import UniversityDashboard from './UniversityDashboard';
 
 const Dashboard = ({ user }) => {
-  // Determine the user's role (you should have this information from the login process)
+  // Check if the user object is defined
+  if (!user) {
+    return <p>Loading user data...</p>;
+  }
+
+  // Determine the user's role
   const userRole = user.role;
 
   return (
