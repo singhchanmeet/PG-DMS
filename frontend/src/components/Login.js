@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
-const Login = ({ setLoggedInUser }) => {
+const Login = ({ handleLogin }) => {
   const [credentials, setCredentials] = useState({ user_id: '', password: '' });
    const navigate = useNavigate();
-   const handleLogin = async () => {
+   const handleLoginClick = async () => {
     try {
       const response = await axios.post('http://localhost:8000/auth/login/', credentials);
-  
+
       if (response.data.access_token) {
         // Token received upon successful login
         const accessToken = response.data.access_token;
-  
+
         // Store the access token in localStorage
         localStorage.setItem('accessToken', accessToken);
-  
+
         // Set the Axios Authorization header for future requests
         axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
-        // Pass user details to the Dashboard component
+
+        // Call the handleLogin function to set the loggedIn state to true
+        handleLogin();
+
+        // Navigate to the dashboard
         navigate('/dashboard');
       }
     } catch (error) {
@@ -57,7 +61,7 @@ const Login = ({ setLoggedInUser }) => {
           </div>
           <button
             type="button"
-            onClick={handleLogin}
+            onClick={handleLoginClick}
             className="w-full bg-blue-500 text-white hover:bg-blue-600 py-2 rounded-md focus:outline-none"
           >
             Login

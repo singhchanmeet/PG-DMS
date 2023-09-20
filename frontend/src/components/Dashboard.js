@@ -31,19 +31,19 @@ const Dashboard = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading user data...</p>;
+    return <p className='text-2xl text-center py-5 text-red-600 font-semibold'>Loading user data...</p>;
   }
 
   if (!user) {
-    return <p>Error loading user data</p>;
+    return <p className='text-2xl text-center py-5 text-red-600 font-semibold'>Error loading user data</p>;
   }
 
   // Determine the user's role
   const userRole = user.role;
 
   return (
-    <div>
-      <h2>Welcome, {user.username}!</h2>
+    <div className='bg-zinc-200'>
+      <h2 className='text-2xl py-3 ml-10 font-mono'>Welcome,<span className=' font-semibold text-red-600'> {user.username}!</span></h2>
       {/* Render the appropriate dashboard based on the user's role */}
       {userRole === 'STUDENT' && <StudentDashboard />}
       {userRole === 'GUIDE' && <GuideDashboard />}
