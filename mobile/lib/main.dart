@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:mobile/dissertation.dart';
 import 'package:mobile/urls.dart';
 import 'package:mobile/user.dart';
 
@@ -39,24 +40,50 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Client client = http.Client();
 
-  User currentUser = User.fromMap({}); // making current user object
+  // making current user object
+  User currentUser = User.fromMap({});
+
+  // making list of all dissertations; they will come in form of list of dictionaries
+  List allDissertations = [];
 
   // starting with _ means this is a private function
-  void _addUser() {}
+  void _addDissertation() {}
+
+  void _deleteDissertation(int pk) {
+    client.delete(deleteDissertationUrl(pk));
+    _retrieveDissertation(); // re-retrieving after deleting
+  }
 
   // this function gets called everytime the widget is rendered
   @override
   void initState() {
-    _retrieveUsers();
+    _retrieveUser();
+    _retrieveDissertation();
     super.initState();
   }
 
-  _retrieveUsers() async {
+  _retrieveUser() async {
     Map<String, dynamic> response = json.decode(
-        (await client.get(retrieveUrl)).body); // taking response in json format
+        (await client.get(retrieveUserUrl))
+            .body); // taking response in json format
     //creating a User object using the fromMap constructor defined in data class
     currentUser =
         User.fromMap({'name': response['username'], 'role': response['role']});
+    setState(
+        () {}); // this calls the build method again because the state has just changed
+  }
+
+  _retrieveDissertation() async {
+    // initializing to empty so that we dont append copies of same dissertation
+    allDissertations = [];
+    // response is a list of dictionaries
+    List response = json.decode((await client.get(retrieveDissertationUrl))
+        .body); // taking response in json format
+    // iterating through each element of response; creating a Dissertation object from each element; and appending it to list
+    for (var element in response) {
+      allDissertations.add(Dissertation.fromMap(element));
+      // print(element);
+    }
     setState(
         () {}); // this calls the build method again because the state has just changed
   }
@@ -65,14 +92,37 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text('${widget.title}   ${currentUser.name}'),
       ),
-      body: Text(currentUser.name),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          _retrieveUser();
+          _retrieveDissertation(); // so that we can simply refresh to retreive details again
+        },
+        child: ListView.builder(
+            itemCount: allDissertations.length,
+            itemBuilder: (BuildContext context, int index) {
+              return ListTile(
+                title: Text(allDissertations[index].title),
+                onTap: () {},
+                trailing: IconButton(
+                  icon: const Icon(Icons.delete),
+                  onPressed: () =>
+                      _deleteDissertation(allDissertations[index].article_id),
+                ),
+              );
+            }),
+      ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _addUser,
+        onPressed: () => _addDissertation,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
     );
   }
 }
+
+
+
+  // to refresh one widget within another we can simply click on that widget and then ctrl + .
+  // for all kinds of auto coding, simply click on a part of code and then ctrl + .
