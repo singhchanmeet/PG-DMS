@@ -1,5 +1,5 @@
 from django.db import models
-
+from authentication.models import User
 import os
 
 def rename_papers(instance, filename):
@@ -38,6 +38,7 @@ class Dissertation(models.Model):
     article_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=256)
     author_name = models.CharField(max_length=100)
+    author_id = models.ManyToManyField(User)
     journal_name = models.CharField(max_length=100)
     institute = models.CharField(max_length=256)
     abstract = models.TextField()
