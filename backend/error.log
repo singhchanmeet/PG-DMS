@@ -626,3 +626,259 @@ Traceback (most recent call last):
   File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\http\request.py", line 148, in get_host
     raise DisallowedHost(msg)
 django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.245.223:8000'. You may need to add '192.168.245.223' to ALLOWED_HOSTS.
+Internal Server Error: /auth/user-details/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\authentication\views.py", line 62, in get
+    username = request.user.name
+               ^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUser' object has no attribute 'name'
+"GET /auth/user-details/ HTTP/1.1" 500 92434
+Internal Server Error: /auth/user-details/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\authentication\views.py", line 62, in get
+    username = request.user.name
+               ^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUser' object has no attribute 'name'
+"GET /auth/user-details/ HTTP/1.1" 500 92562
+Internal Server Error: /auth/user-details/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\authentication\views.py", line 62, in get
+    username = request.user.name
+               ^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUser' object has no attribute 'name'
+"GET /auth/user-details/ HTTP/1.1" 500 93570
+Internal Server Error: /auth/user-details/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\authentication\views.py", line 62, in get
+    username = request.user.name
+               ^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUser' object has no attribute 'name'
+"GET /auth/user-details/ HTTP/1.1" 500 93663
+Internal Server Error: /auth/user-details/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\authentication\views.py", line 62, in get
+    username = request.user.name
+               ^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUser' object has no attribute 'name'
+"GET /auth/user-details/ HTTP/1.1" 500 93663
+Internal Server Error: /auth/user-details/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\authentication\views.py", line 62, in get
+    username = request.user.name
+               ^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUser' object has no attribute 'name'
+"GET /auth/user-details/ HTTP/1.1" 500 93663
+Internal Server Error: /auth/user-details/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\authentication\views.py", line 62, in get
+    username = request.user.name
+               ^^^^^^^^^^^^^^^^^
+AttributeError: 'AnonymousUser' object has no attribute 'name'
+"GET /auth/user-details/ HTTP/1.1" 500 93663
+Internal Server Error: /dissertation/get/1/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\fields.py", line 446, in get_attribute
+    return get_attribute(instance, self.source_attrs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\fields.py", line 96, in get_attribute
+    instance = getattr(instance, attr)
+               ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'QuerySet' object has no attribute 'title'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\views.py", line 65, in get
+    return Response(serializer.data, status=status.HTTP_200_OK)
+                    ^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\serializers.py", line 555, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\serializers.py", line 253, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\serializers.py", line 509, in to_representation
+    attribute = field.get_attribute(instance)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\fields.py", line 479, in get_attribute
+    raise type(exc)(msg)
+AttributeError: Got AttributeError when attempting to get a value for field `title` on serializer `DissertationSerializer`.
+The serializer field might be named incorrectly and not match any attribute or key on the `QuerySet` instance.
+Original exception text was: 'QuerySet' object has no attribute 'title'.
+"GET /dissertation/get/1/ HTTP/1.1" 500 127816

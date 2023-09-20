@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Explore = () => {
   const [dissertations, setDissertations] = useState([]);
@@ -7,7 +8,7 @@ const Explore = () => {
 
   useEffect(() => {
     // Fetch the latest dissertations
-    axios.get('/api/latest-dissertations')
+    axios.get('http://localhost:8000/dissertation/get-all/')
       .then((response) => {
         setDissertations(response.data);
       })
@@ -31,10 +32,10 @@ const Explore = () => {
         <h2 className="text-2xl font-semibold mb-4">Latest Dissertations</h2>
         <ul>
           {dissertations.map((dissertation) => (
-            <li key={dissertation.id} className="mb-2">
-              <a href={`/dissertations/${dissertation.id}`} className="text-blue-500 hover:underline">
-                {dissertation.title}
-              </a>
+            <li key={dissertation.article_id} className="mb-2">
+              <Link to={`/dissertations/${dissertation.article_id}`} className="text-blue-500 hover:underline">
+              {dissertation.article_id}: {dissertation.title}
+              </Link>
             </li>
           ))}
         </ul>

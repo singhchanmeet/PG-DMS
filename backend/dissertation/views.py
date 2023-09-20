@@ -12,7 +12,20 @@ class CreateDissertation(APIView):
 
     def post(self, request):
         # Serialize the data using UserSerializer for validation only
-        dissertation_serializer = DissertationSerializer(data=request.data)  
+        final_data = {
+            'title' : request.data.get('title'),
+            'author_name' : request.data.get('author_name'),
+            'author_id' : [request.user],
+            'journal_name' : request.data.get('journal_name'),
+            'institute' : request.data.get('institute'),
+            'abstract' : request.data.get('abstract'),
+            'medical_system' : request.data.get('medical_system'),
+            'category' : request.data.get('category'),
+            'disease_related' : request.data.get('disease_related'),
+            'keywords' : request.data.get('keywords'),
+            'full_paper' : request.data.get('full_paper')
+        }
+        dissertation_serializer = DissertationSerializer(data=final_data)
 
         if dissertation_serializer.is_valid():
             dissertation_serializer.save()
@@ -21,16 +34,17 @@ class CreateDissertation(APIView):
             return Response(dissertation_serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         
 
+# to get all the dissertations in the db
 class GetDissertations(APIView):
-    # only authenticated users can access this view
-    # permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         # username = request.user.name
         all_dissertations = Dissertation.objects.all()
         serializer = DissertationSerializer(all_dissertations, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
+
+   
+# to get all dissertations of a particular user
 class GetDissertation(APIView):
     # only authenticated users can access this view
     # permission_classes = (IsAuthenticated,)
@@ -40,10 +54,19 @@ class GetDissertation(APIView):
         all_dissertations = Dissertation.objects.all().filter(author_id = request.user)
         serializer = DissertationSerializer(all_dissertations, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
+
+
+# to get details of a dissertation by id 
+class GetDissertationDetails(APIView):
+
+    def get(self, request, id):
+        dissertation = Dissertation.objects.all().filter(article_id = id).first()
+        serializer = DissertationSerializer(dissertation, many=False)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+# To delete a dissertation by id   
 class DeleteDissertation(APIView):
-    # only authenticated users can access this view
-    # permission_classes = (IsAuthenticated,)
 
     def delete(self, request, pk):
         dissertation = Dissertation.objects.all().filter(article_id = pk)

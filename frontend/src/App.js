@@ -10,6 +10,7 @@ import DissertationForm from './components/DissertationForm';
 import Explore from './components/Explore';
 import MyDisserations from './components/MyDisserations';
 import ProfileDetails from './components/ProfileDetails';
+import DissertationDetail from './components/DissertationDetails';
 
 function App() {
   // Initialize the loggedin state as false
@@ -36,6 +37,7 @@ function App() {
         <Route path="/dstrn-create" element={<DissertationForm loggedin={loggedin} />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/mydissertations"element={<MyDisserations loggedin={loggedin} />} />
+        <Route path="/dissertations/:dissertationId"element={<DissertationDetail />} />
         <Route path="/profile/username"element={<ProfileDetails loggedin={loggedin} />} />
         {/* Add more routes as needed */}
       </Routes>

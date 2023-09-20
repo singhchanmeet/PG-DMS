@@ -21,7 +21,7 @@ const StudentDashboard = () => {
         onClick={handleCreateButtonClick}
         className="bg-blue-500 text-white hover:bg-blue-600 py-2 px-4 rounded-md mt-4 ml-16"
         >Publish a Thesis</button>
-        <Link to="/username/dstrn-details" className="bg-blue-500 text-white hover:bg-blue-600 py-2 px-4 rounded-md mt-4 ml-16">
+        <Link to="/mydissertations" className="bg-blue-500 text-white hover:bg-blue-600 py-2 px-4 rounded-md mt-4 ml-16">
         Your Dissertations
       </Link>
       </div>

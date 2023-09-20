@@ -1,15 +1,20 @@
 // DissertationDetail.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
-const DissertationDetail = ({ dissertationId }) => {
+const DissertationDetail = ({ }) => {
   const [dissertation, setDissertation] = useState(null);
+  const { dissertationId } = useParams();
 
   useEffect(() => {
     // Fetch details of a single dissertation record
-    axios.get(`/api/dissertations/${dissertationId}`)
+    axios.get(`http://localhost:8000/dissertation/get/${dissertationId}/`)
       .then((response) => {
         setDissertation(response.data);
+        console.log(response);
+        // Response is coming successfully (checked by chanmeet)
+        // TODO(Aman) : render the response
       })
       .catch((error) => {
         console.error('Error fetching dissertation:', error);
@@ -22,8 +27,11 @@ const DissertationDetail = ({ dissertationId }) => {
 
   return (
     <div>
-      <h2>{dissertation.title}</h2>
+      <h2>Title: {dissertation.title}</h2>
       <p>Author: {dissertation.author_name}</p>
+      <p>  Response is coming successfully (checked by chanmeet)
+         TODO(Aman) : render the response
+         Check console for the response</p>
       {/* Display other dissertation details */}
     </div>
   );
