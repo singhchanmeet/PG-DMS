@@ -40,3 +40,12 @@ class GetDissertation(APIView):
         all_dissertations = Dissertation.objects.all().filter(author_id = request.user)
         serializer = DissertationSerializer(all_dissertations, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class DeleteDissertation(APIView):
+    # only authenticated users can access this view
+    # permission_classes = (IsAuthenticated,)
+
+    def delete(self, request, pk):
+        dissertation = Dissertation.objects.all().filter(article_id = pk)
+        dissertation.delete()
+        return Response({'deleted dissertation successfully'}, status=status.HTTP_200_OK)
