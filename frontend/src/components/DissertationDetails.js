@@ -29,9 +29,15 @@ const DissertationDetail = ({ }) => {
     <div>
       <h2>Title: {dissertation.title}</h2>
       <p>Author: {dissertation.author_name}</p>
-      <p>  Response is coming successfully (checked by chanmeet)
-         TODO(Aman) : render the response
-         Check console for the response</p>
+      <p>Abstract: {dissertation.abstract}</p>
+      <p>Article ID: {dissertation.article_id}</p>
+      <p>Author ID: {dissertation.author_id.join(', ')}</p>
+      <p>Category: {dissertation.category}</p>
+      <p>Disease Related: {dissertation.disease_related}</p>
+      <p>Institute: {dissertation.institute}</p>
+      <p>Journal Name: {dissertation.journal_name}</p>
+      <p>Keywords: {dissertation.keywords}</p>
+      <p>Medical System: {dissertation.medical_system}</p>
       {/* Display other dissertation details */}
     </div>
   );
