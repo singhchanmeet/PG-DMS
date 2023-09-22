@@ -39,35 +39,24 @@ class CustomUserManager(BaseUserManager):
 class User(AbstractUser):
 
     class Role(models.TextChoices):
-        # first arguement is stored in database, second is its human readable form that will be displayed in dropdowns
         SUPERUSER = "SUPERUSER" , 'Superuser'
         STUDENT = "STUDENT" , 'Student'
         GUIDE = "GUIDE" , 'Guide'
         UNIVERSITY = "UNIVERSITY" , 'University'
 
-    # fields coming from parent class AbstractUSer that will be used as-it-is in our custom User model are :
-    # email, password, groups, user_permissions, is_staff, is_active, last_login, last_joined
-    # fields from parent class AbstractUser that we want to NOT be present in our custom User model are:
-    username = None
-    first_name = None
-    last_name = None
-    # adding these new fields to our custom User model:
     user_id = models.CharField(max_length=50, primary_key=True)
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=50, choices=Role.choices)
 
-    # user_id will be used for authentication
-    USERNAME_FIELD = 'user_id'  
+    student = models.ForeignKey('student.Student', on_delete=models.SET_NULL, null=True, blank=True)
+    guide = models.ForeignKey('guide.Guide', on_delete=models.SET_NULL, null=True, blank=True)
+    university = models.ForeignKey('university.University', on_delete=models.SET_NULL, null=True, blank=True)
 
-    # without these fields, a User object can't be created:
-    REQUIRED_FIELDS = ['email', 'name']
-
-    # for overriding default create_user and create_superuser method because we have extra arguements to be dealt with
-    objects = CustomUserManager()  
+    # USERNAME_FIELD and REQUIRED_FIELDS remain the same
 
     def __str__(self):
         return self.user_id
-    
+
     class Meta:
-        db_table = 'users'  # This sets the table name to 'users'
+        db_table = 'users'
         verbose_name_plural = "Users"
