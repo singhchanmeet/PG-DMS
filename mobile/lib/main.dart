@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
     allDissertations = [];
     // response is a list of dictionaries
     List response = json.decode((await client.get(retrieveDissertationUrl))
-        .body); // taking response in json format
+    .body); // taking response in json format
     // iterating through each element of response; creating a Dissertation object from each element; and appending it to list
     for (var element in response) {
       allDissertations.add(Dissertation.fromMap(element));

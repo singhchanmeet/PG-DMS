@@ -52,8 +52,6 @@ const Dashboard = () => {
         </li>
       ))}
     </ul>
-    <p>Response is coming successfully (checked by chanmeet)
-    //      TODO(Aman) : render the response.  check console for the response</p>
   </div>
   );
 };
