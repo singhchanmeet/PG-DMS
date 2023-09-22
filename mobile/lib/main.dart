@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
+import 'package:mobile/create_user.dart';
 import 'package:mobile/dissertation.dart';
 import 'package:mobile/urls.dart';
 import 'package:mobile/user.dart';
@@ -40,9 +41,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   Client client = http.Client();
 
-  // making current user object
-  User currentUser = User.fromMap({});
-
   // making list of all dissertations; they will come in form of list of dictionaries
   List allDissertations = [];
 
@@ -57,20 +55,8 @@ class _MyHomePageState extends State<MyHomePage> {
   // this function gets called everytime the widget is rendered
   @override
   void initState() {
-    _retrieveUser();
     _retrieveDissertation();
     super.initState();
-  }
-
-  _retrieveUser() async {
-    Map<String, dynamic> response = json.decode(
-        (await client.get(retrieveUserUrl))
-            .body); // taking response in json format
-    //creating a User object using the fromMap constructor defined in data class
-    currentUser =
-        User.fromMap({'name': response['username'], 'role': response['role']});
-    setState(
-        () {}); // this calls the build method again because the state has just changed
   }
 
   _retrieveDissertation() async {
@@ -92,11 +78,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.title}   ${currentUser.name}'),
+        title: Text(widget.title),
       ),
       body: RefreshIndicator(
         onRefresh: () async {
-          _retrieveUser();
           _retrieveDissertation(); // so that we can simply refresh to retreive details again
         },
         child: ListView.builder(
@@ -113,8 +98,13 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             }),
       ),
+      // in MaterialPageRoute() we defined that route, and in Navigator.push() we actually push what we defined
+      // also the CreateUser constructor is taking client as a keyword arguement
       floatingActionButton: FloatingActionButton(
-        onPressed: () => _addDissertation,
+        onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => CreateUser(
+                  client: client,
+                ))),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
