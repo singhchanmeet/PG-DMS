@@ -2,8 +2,6 @@
 
 from django.db import models
 from authentication.models import User
-from guide.models import Guide  # Import the Guide model from the 'guide' app
-from student.models import Student  # Import the Student model from the 'student' app
 
 class University(models.Model):
     id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
@@ -17,3 +15,4 @@ class University(models.Model):
 
     class Meta:
         db_table = 'universities'
+        verbose_name_plural = 'universities'

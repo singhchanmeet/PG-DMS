@@ -1,0 +1,2 @@
+superuser can create universities. for that first they will create a user in users table, then create a university in universities table
+at the time a superuser is creating a university, he will know the no. of guides and students under it (bcoz it is fixed for every academic year)

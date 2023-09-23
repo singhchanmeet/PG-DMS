@@ -38,7 +38,7 @@ class Dissertation(models.Model):
     article_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=256)
     author_name = models.CharField(max_length=100)
-    author_id = models.ManyToManyField(User)
+    author_id = models.ManyToManyField(User)       # this single field can link a dissertation to a student, guide, university
     journal_name = models.CharField(max_length=100)
     institute = models.CharField(max_length=256)
     abstract = models.TextField()

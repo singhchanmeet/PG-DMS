@@ -4,7 +4,6 @@ from university.models import University  # Import the University model from the
 
 class Guide(models.Model):
     id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     university = models.ForeignKey(University, on_delete=models.SET_NULL, null=True)
     number_of_students = models.PositiveIntegerField(default=0)
@@ -14,3 +13,4 @@ class Guide(models.Model):
 
     class Meta:
         db_table = 'guides'
+        verbose_name_plural = 'guides'

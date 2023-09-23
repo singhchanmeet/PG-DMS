@@ -44,14 +44,14 @@ class GetDissertations(APIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
    
-# to get all dissertations of a particular user
+# to get all dissertations of a particular user - whether university, guide, or student
 class GetDissertation(APIView):
     # only authenticated users can access this view
     # permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         # username = request.user.name
-        all_dissertations = Dissertation.objects.all().filter(author_id = request.user)
+        all_dissertations = Dissertation.objects.filter(author_id = request.user)
         serializer = DissertationSerializer(all_dissertations, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -60,7 +60,7 @@ class GetDissertation(APIView):
 class GetDissertationDetails(APIView):
 
     def get(self, request, id):
-        dissertation = Dissertation.objects.all().filter(article_id = id).first()
+        dissertation = Dissertation.objects.filter(article_id = id).first()
         serializer = DissertationSerializer(dissertation, many=False)
         return Response(serializer.data, status=status.HTTP_200_OK)
 

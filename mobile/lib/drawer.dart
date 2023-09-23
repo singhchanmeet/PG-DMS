@@ -77,7 +77,6 @@ class _CustomDrawerState extends State<CustomDrawer> {
                         // If the user confirms, perform logout
                         if (confirmLogout == true) {
                           await storage.delete(key: 'access_token');
-                          // Add any additional logout logic here
 
                           //navigate to home page
                           Navigator.of(context).push(MaterialPageRoute(

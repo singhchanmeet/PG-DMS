@@ -7,7 +7,6 @@ from university.models import University  # Import the Student model from the 's
 
 class Student(models.Model):
     id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     number_of_dissertations = models.PositiveIntegerField(default=0)
     guide = models.ForeignKey(Guide, on_delete=models.SET_NULL, null=True)
     university = models.ForeignKey(University, on_delete=models.SET_NULL, null=True)
@@ -17,3 +16,4 @@ class Student(models.Model):
 
     class Meta:
         db_table = 'students'
+        verbose_name_plural = 'students'
