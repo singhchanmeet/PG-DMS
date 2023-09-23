@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:mobile/drawer.dart';
 import 'package:mobile/storage.dart';
 import 'package:mobile/user.dart';
 
@@ -50,6 +51,7 @@ class _UserDetailsState extends State<UserDetails> {
         appBar: AppBar(
           title: Text(currentUser.name),
         ),
+        drawer: CustomDrawer(client: widget.client),
         body: RefreshIndicator(
           onRefresh: () async {
             _retrieveUserDetails(); // so that we can simply refresh to retreive details again

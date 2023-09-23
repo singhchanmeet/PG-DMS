@@ -1,10 +1,13 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:mobile/create_user.dart';
 import 'package:mobile/dissertation.dart';
+import 'package:mobile/drawer.dart';
+import 'package:mobile/storage.dart';
 import 'package:mobile/urls.dart';
 import 'package:mobile/user.dart';
 
@@ -23,7 +26,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'PG-DMS'),
+      home: const MyHomePage(title: 'Explore Dissertations'),
     );
   }
 }
@@ -64,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
     allDissertations = [];
     // response is a list of dictionaries
     List response = json.decode((await client.get(retrieveDissertationUrl))
-    .body); // taking response in json format
+        .body); // taking response in json format
     // iterating through each element of response; creating a Dissertation object from each element; and appending it to list
     for (var element in response) {
       allDissertations.add(Dissertation.fromMap(element));
@@ -80,6 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
+      drawer: CustomDrawer(client: client),
       body: RefreshIndicator(
         onRefresh: () async {
           _retrieveDissertation(); // so that we can simply refresh to retreive details again

@@ -44,15 +44,31 @@ class User(AbstractUser):
         GUIDE = "GUIDE" , 'Guide'
         UNIVERSITY = "UNIVERSITY" , 'University'
 
+    
+    # fields coming from parent class AbstractUSer that will be used as-it-is in our custom User model are :
+    # email, password, groups, user_permissions, is_staff, is_active, last_login, last_joined
+    # fields from parent class AbstractUser that we want to NOT be present in our custom User model are:
+    username = None
+    first_name = None
+    last_name = None
+    # adding these new fields to our custom User model:
     user_id = models.CharField(max_length=50, primary_key=True)
     name = models.CharField(max_length=100)
     role = models.CharField(max_length=50, choices=Role.choices)
 
-    student = models.ForeignKey('student.Student', on_delete=models.SET_NULL, null=True, blank=True)
-    guide = models.ForeignKey('guide.Guide', on_delete=models.SET_NULL, null=True, blank=True)
-    university = models.ForeignKey('university.University', on_delete=models.SET_NULL, null=True, blank=True)
+    # user_id will be used for authentication
+    USERNAME_FIELD = 'user_id'  
 
-    # USERNAME_FIELD and REQUIRED_FIELDS remain the same
+    
+    # without these fields, a User object can't be created:
+    REQUIRED_FIELDS = ['email', 'name']
+
+    # for overriding default create_user and create_superuser method because we have extra arguements to be dealt with
+    objects = CustomUserManager() 
+
+    # student = models.ForeignKey('student.Student', on_delete=models.SET_NULL, null=True, blank=True)
+    # guide = models.ForeignKey('guide.Guide', on_delete=models.SET_NULL, null=True, blank=True)
+    # university = models.ForeignKey('university.University', on_delete=models.SET_NULL, null=True, blank=True)
 
     def __str__(self):
         return self.user_id
