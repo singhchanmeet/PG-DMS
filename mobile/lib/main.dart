@@ -1,15 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
-import 'package:mobile/create_user.dart';
 import 'package:mobile/dissertation.dart';
+import 'package:mobile/dissertation_details.dart';
 import 'package:mobile/drawer.dart';
-import 'package:mobile/storage.dart';
 import 'package:mobile/urls.dart';
-import 'package:mobile/user.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,11 +47,6 @@ class _MyHomePageState extends State<MyHomePage> {
   // starting with _ means this is a private function
   void _addDissertation() {}
 
-  void _deleteDissertation(int pk) {
-    client.delete(deleteDissertationUrl(pk));
-    _retrieveDissertation(); // re-retrieving after deleting
-  }
-
   // this function gets called everytime the widget is rendered
   @override
   void initState() {
@@ -63,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   _retrieveDissertation() async {
-    // initializing to empty so that we dont append copies of same dissertation
+    // initializing to empty so that we dont append copies of same dissertation on refreshing
     allDissertations = [];
     // response is a list of dictionaries
     List response = json.decode((await client.get(retrieveDissertationUrl))
@@ -91,26 +83,35 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView.builder(
             itemCount: allDissertations.length,
             itemBuilder: (BuildContext context, int index) {
-              return ListTile(
-                title: Text(allDissertations[index].title),
-                onTap: () {},
-                trailing: IconButton(
-                  icon: const Icon(Icons.delete),
-                  onPressed: () =>
-                      _deleteDissertation(allDissertations[index].article_id),
-                ),
+              return Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        border: Border(
+                          bottom: BorderSide(
+                            color:
+                                Colors.grey, // Choose your desired border color
+                            width: 1.0, // Choose your desired border width
+                          ),
+                        ),
+                      ),
+                      child: ListTile(
+                        title: Text(allDissertations[index].title),
+                        onTap: () =>
+                            Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => DissertationDetails(
+                            client: client,
+                            pk: allDissertations[index].article_id,
+                          ),
+                        )),
+                      ),
+                    ),
+                  ),
+                ],
               );
             }),
-      ),
-      // in MaterialPageRoute() we defined that route, and in Navigator.push() we actually push what we defined
-      // also the CreateUser constructor is taking client as a keyword arguement
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => CreateUser(
-                  client: client,
-                ))),
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
