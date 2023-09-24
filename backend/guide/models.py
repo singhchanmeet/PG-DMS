@@ -5,7 +5,7 @@ from university.models import University  # Import the University model from the
 class Guide(models.Model):
     id = models.OneToOneField(User, on_delete=models.CASCADE, primary_key=True)
     name = models.CharField(max_length=100)
-    university = models.ForeignKey(University, on_delete=models.SET_NULL, null=True)
+    university = models.ForeignKey(University, on_delete=models.SET_NULL, null=True, blank=True)
     number_of_students = models.PositiveIntegerField(default=0)
     
     def __str__(self):

@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('authentication.urls')),   # for authentication
     path('dissertation/', include('dissertation.urls')),   # for dissertation
-    # path('university/', include('university.urls')),   # for dissertation
-    # path('guide/', include('guide.urls')),   # for dissertation
-    # path('student/', include('student.urls')),   # for dissertation
+    # path('university/', include('university.urls')),   # for university
+    path('guide/', include('guide.urls')),   # for guide
+    # path('student/', include('student.urls')),   # for student
 ]

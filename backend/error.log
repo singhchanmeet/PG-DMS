@@ -164,3 +164,87 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 django.db.utils.OperationalError: no such column: dissertations.created_at
 "GET /dissertation/get-all/ HTTP/1.1" 500 169064
+Internal Server Error: /admin/student/student/add/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\options.py", line 1890, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\options.py", line 1750, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\options.py", line 1808, in _changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\options.py", line 924, in log_addition
+    object_repr=str(obj),
+                ^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\student\models.py", line 13, in __str__
+    return self.user.name  # You can use the User's name as the student's name
+           ^^^^^^^^^
+AttributeError: 'Student' object has no attribute 'user'
+"POST /admin/student/student/add/ HTTP/1.1" 500 116778
+Internal Server Error: /admin/student/student/add/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\options.py", line 686, in wrapper
+    return self.admin_site.admin_view(view)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\cache.py", line 62, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\sites.py", line 242, in inner
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\options.py", line 1890, in add_view
+    return self.changeform_view(request, None, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\utils\decorators.py", line 133, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\options.py", line 1750, in changeform_view
+    return self._changeform_view(request, object_id, form_url, extra_context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\options.py", line 1808, in _changeform_view
+    self.log_addition(request, new_object, change_message)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\contrib\admin\options.py", line 924, in log_addition
+    object_repr=str(obj),
+                ^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\student\models.py", line 13, in __str__
+    return self.user.name  # You can use the User's name as the student's name
+           ^^^^^^^^^
+AttributeError: 'Student' object has no attribute 'user'
+"POST /admin/student/student/add/ HTTP/1.1" 500 116650

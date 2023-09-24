@@ -7,8 +7,8 @@ from . models import Dissertation
 
 
 class CreateDissertation(APIView):
-    # only authenticated users can access this view
-    # permission_classes = (IsAuthenticated,)
+    # only logged in university can access this view
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         # Serialize the data using UserSerializer for validation only
@@ -25,6 +25,7 @@ class CreateDissertation(APIView):
             'keywords' : request.data.get('keywords'),
             'full_paper' : request.data.get('full_paper')
         }
+
         dissertation_serializer = DissertationSerializer(data=final_data)
 
         if dissertation_serializer.is_valid():
@@ -45,9 +46,9 @@ class GetDissertations(APIView):
 
    
 # to get all dissertations of a particular user - whether university, guide, or student
-class GetDissertation(APIView):
-    # only authenticated users can access this view
-    # permission_classes = (IsAuthenticated,)
+class GetUserDissertations(APIView):
+   
+    permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         # username = request.user.name
