@@ -8,7 +8,7 @@ from . models import Dissertation
 
 class CreateDissertation(APIView):
     # only logged in university can access this view
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     def post(self, request):
         # Serialize the data using UserSerializer for validation only

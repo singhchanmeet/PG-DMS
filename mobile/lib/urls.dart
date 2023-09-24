@@ -2,6 +2,9 @@ Uri retrieveUserUrl = Uri.parse('http://192.168.1.33:8000/auth/user-details/');
 
 Uri createUserUrl = Uri.parse('http://192.168.1.33:8000/auth/signup/');
 
+Uri createDissertationUrl =
+    Uri.parse('http://192.168.1.33:8000/dissertation/create/');
+
 Uri loginUserUrl = Uri.parse('http://192.168.1.33:8000/auth/login/');
 
 Uri retrieveDissertationUrl =
