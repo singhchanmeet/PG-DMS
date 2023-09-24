@@ -52,6 +52,9 @@ const Dashboard = () => {
         </li>
       ))}
     </ul>
+    <br />
+    <br />
+    <h2 className='text-xl font-sans'>Dissertations Approved</h2>
   </div>
   );
 };
