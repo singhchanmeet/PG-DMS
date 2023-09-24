@@ -76,15 +76,16 @@ class Dissertation {
     };
   }
 
+// NOTE: we are adding null safety in every field so that we can initialize an empty object of the Dissertation data class whereever needed
   factory Dissertation.fromMap(Map<String, dynamic> map) {
     return Dissertation(
       article_id: map['article_id'] as int? ?? 1,
       title: map['title'] as String? ?? '',
       author_name: map['author_name'] as String? ?? '',
-      author_id: List<String>.from((map['author_id'] as List<dynamic>)),
+      author_id: List<String>.from((map['author_id'] as List<dynamic>?) ?? []),
       journal_name: map['journal_name'] as String? ?? '',
       institute: map['institute'] as String? ?? '',
-      abstract: map['abstract'] as String,
+      abstract: map['abstract'] as String? ?? '',
       medical_system: map['medical_system'] as String? ?? '',
       category: map['category'] as String? ?? '',
       disease_related: map['disease_related'] as String? ?? '',

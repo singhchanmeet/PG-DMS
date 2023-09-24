@@ -4,6 +4,7 @@ import 'package:http/http.dart';
 import 'package:mobile/create_user.dart';
 import 'package:mobile/main.dart';
 import 'package:mobile/storage.dart';
+import 'package:mobile/user_details.dart';
 
 class CustomDrawer extends StatefulWidget {
   final Client client;
@@ -35,6 +36,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
               ),
             ),
           ),
+          ListTile(
+            title: const Text('Explore Dissertations'),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const MyHomePage(
+                        title: 'Explore Dissertations',
+                      )));
+            },
+          ),
           FutureBuilder<String?>(
             // Check if 'access_token' exists in Flutter Secure Storage
             future: storage.read(key: 'access_token'),
@@ -43,6 +53,15 @@ class _CustomDrawerState extends State<CustomDrawer> {
                 // 'access_token' exists, display Logout
                 return Column(
                   children: <Widget>[
+                    ListTile(
+                      title: const Text('Dashboard'),
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => UserDetails(
+                                  client: widget.client,
+                                )));
+                      },
+                    ),
                     ListTile(
                       title: const Text('Logout'),
                       onTap: () async {
@@ -104,16 +123,18 @@ class _CustomDrawerState extends State<CustomDrawer> {
               }
             },
           ),
-
-          ListTile(
-            title: const Text('Item 2'),
-            onTap: () {
-              // Add your drawer item 2 action here
-            },
-          ),
           // Add more drawer items as needed
         ],
       ),
     );
   }
 }
+
+
+
+
+// first ListTile is showing Explore Dissertations
+
+// second is a column ,
+// if user is logged in,  it will show two ListTiles: Dashboard and Logout
+// if user is not logged in, it will show one ListTile: Signup/Login
