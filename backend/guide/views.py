@@ -18,7 +18,6 @@ class CreateGuide(APIView):
         user_serializer = UserSerializer(data=request.data)  
 
         if user_serializer.is_valid():
-            
             guide_data = {
                 'id': {
                     "user_id": request.data['user_id'],

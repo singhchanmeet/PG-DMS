@@ -53,7 +53,12 @@ const Navbar = ({ loggedin , handleLogout}) => {
                 Logout
               </button>
             </li>
-          ) : null}
+          ) : (<li>
+            <Link to={'/login'}><button className="text-white hover:text-gray-200 focus:outline-none"
+            >
+              Login
+            </button></Link>
+          </li>)}
         </ul>
       </div>
     </nav>

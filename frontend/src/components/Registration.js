@@ -58,7 +58,6 @@ const Registration = () => {
             <option value="">Select Role</option>
             <option value="STUDENT">PG Student</option>
             <option value="GUIDE">Guide</option>
-            <option value="UNIVERSITY">University</option>
           </select>
         </div>
         <div className="mb-4">

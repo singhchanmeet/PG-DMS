@@ -1,58 +1,68 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const UniversityDetails = () => {
-  // You can fetch university-related data here using Axios or other methods
-  // For this example, we'll use dummy data
-  const universityData = {
-    name: 'Sample University',
-    guides: [
-      { id: 1, name: 'Guide 1' },
-      { id: 2, name: 'Guide 2' },
-      // Add more guides as needed
-    ],
-    students: [
-      { id: 1, name: 'Student 1' },
-      { id: 2, name: 'Student 2' },
-      // Add more students as needed
-    ],
-    dissertations: [
-      { id: 1, title: 'Dissertation 1', author: 'Author 1' },
-      { id: 2, title: 'Dissertation 2', author: 'Author 2' },
-      // Add more dissertations as needed
-    ],
-  };
+  const [studentData, setStudentData] = useState([]);
+  const [guideData, setGuideData] = useState([]);
+
+  useEffect(() => {
+    // Fetch all students from your Django API
+    axios.get('https://localhost:8000/api/get-all-students/') // Update the URL
+      .then((response) => {
+        setStudentData(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching student data:', error);
+      });
+  }, []);
+
+  useEffect(() => {
+    // Fetch all guides from your Django API
+    axios.get('https://localhost:8000/api/get-all-guides/') // Update the URL
+      .then((response) => {
+        setGuideData(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching guide data:', error);
+      });
+  }, []);
 
   return (
     <div>
-      <h2>University Details - {universityData.name}</h2>
+      {/* Buttons for My Organization and Manage Thesis Approvals */}
+      <div className="mb-4">
+        <Link to="/my-organization">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-4 rounded">
+            My Organization
+          </button>
+        </Link>
+        <Link to="/manage-thesis-approvals">
+          <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+            Manage Thesis Approvals
+          </button>
+        </Link>
+      </div>
 
       {/* Display guides */}
-      <div>
-        <h3>Guides</h3>
+      <div className="mb-4">
+        <h3 className="text-xl font-semibold mb-2">Guides</h3>
         <ul>
-          {universityData.guides.map((guide) => (
-            <li key={guide.id}>{guide.name}</li>
+          {guideData.map((guide) => (
+            <li key={guide.id} className="mb-1">
+              {guide.name}
+            </li>
           ))}
         </ul>
       </div>
 
       {/* Display students */}
-      <div>
-        <h3>Students</h3>
+      <div className="mb-4">
+        <h3 className="text-xl font-semibold mb-2">Students</h3>
         <ul>
-          {universityData.students.map((student) => (
-            <li key={student.id}>{student.name}</li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Display dissertations */}
-      <div>
-        <h3>Dissertations</h3>
-        <ul>
-          {universityData.dissertations.map((dissertation) => (
-            <li key={dissertation.id}>
-              {dissertation.title} by {dissertation.author}
+          {studentData.map((student) => (
+            <li key={student.id} className="mb-1">
+              {student.name}
             </li>
           ))}
         </ul>
