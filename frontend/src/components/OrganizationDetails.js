@@ -5,10 +5,15 @@ import { Link } from 'react-router-dom';
 const OrganizationDetails = () => {
     const [studentData, setStudentData] = useState([]);
     const [guideData, setGuideData] = useState([]);
-  
+    const accessToken = localStorage.getItem('accessToken');
     useEffect(() => {
       // Fetch all students from your Django API
-      axios.get('https://localhost:8000/api/get-all-students/')
+      axios.get('http://localhost:8000/university/all-students/', {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`, // Add the token to the 'Authorization' header
+          'Content-Type': 'application/json', // Adjust headers as needed
+        }
+      })
         .then((response) => {
           setStudentData(response.data);
         })
@@ -19,7 +24,12 @@ const OrganizationDetails = () => {
   
     useEffect(() => {
       // Fetch all guides from your Django API
-      axios.get('https://localhost:8000/api/get-all-guides/')
+      axios.get('http://localhost:8000/university/all-guides/', {
+        headers: {
+          'Authorization': `Bearer ${accessToken}`, // Add the token to the 'Authorization' header
+          'Content-Type': 'application/json', // Adjust headers as needed
+        }
+      })
         .then((response) => {
           setGuideData(response.data);
         })
