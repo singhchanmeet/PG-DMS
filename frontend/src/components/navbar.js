@@ -2,24 +2,24 @@ import axios from 'axios';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Navbar = ({ loggedin , handleLogout}) => {
+const Navbar = ({ loggedin, handleLogout }) => {
   const navigate = useNavigate();
   const accessToken = localStorage.getItem('accessToken');
   const handleLogoutclick = async () => {
     try {
       // Make a POST request to the logout endpoint
       axios.get('http://localhost:8000/auth/user-details/', {
-			headers: {
-				'Authorization': `Bearer ${accessToken}`, // Add the token to the 'Authorization' header
-        'Content-Type': 'application/json', // Adjust headers as needed
-			}
-		})
+        headers: {
+          'Authorization': `Bearer ${accessToken}`, // Add the token to the 'Authorization' header
+          'Content-Type': 'application/json', // Adjust headers as needed
+        }
+      })
       // Remove the access token from localStorage
       localStorage.removeItem('accessToken');
-      
+
       // Remove the Authorization header
       delete axios.defaults.headers.common['Authorization'];
-      
+
       // Set the logged-in state to false
       handleLogout();
 
@@ -38,9 +38,11 @@ const Navbar = ({ loggedin , handleLogout}) => {
           <li>
             <Link to="/" className="text-white hover:text-gray-200">Home</Link>
           </li>
-          <li>
-            <Link to="/dashboard" className="text-white hover:text-gray-200">Dashboard</Link>
-          </li>
+          {loggedin ?
+            (<li>
+              <Link to="/dashboard" className="text-white hover:text-gray-200">Dashboard</Link>
+            </li>) : (null)
+          }
           <li>
             <Link to="/explore" className="text-white hover:text-gray-200">Explore</Link>
           </li>

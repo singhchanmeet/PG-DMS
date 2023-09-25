@@ -15,7 +15,7 @@ class GetAllStudents(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        logged_in_university = University.objects.filter(id = request.user)
+        logged_in_university = University.objects.filter(id = request.user).first()
         all_students = Student.objects.filter(university = logged_in_university)   # all students of currently logged in university
         serializer = StudentSerializer(all_students, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -27,7 +27,7 @@ class GetAllGuides(APIView):
     permission_classes = (IsAuthenticated,)
 
     def get(self, request):
-        logged_in_university = University.objects.filter(id = request.user)
+        logged_in_university = University.objects.filter(id = request.user).first()
         all_guides = Guide.objects.filter(university = logged_in_university)   # all guides of currently logged in university
         serializer = GuideSerializer(all_guides, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

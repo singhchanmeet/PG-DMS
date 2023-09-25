@@ -14,6 +14,9 @@ import DissertationDetail from './components/DissertationDetails';
 import RegistrationUni from './components/RegistrationUni';
 import OrganizationDetails from './components/OrganizationDetails';
 import ManageApproval from './components/ManageApproval';
+import AnalyticDashboard from './components/AnalyticDashboard';
+import AnalyticNavbar from './components/AnalyticNavbar';
+import SidePanel from './components/SidePanel';
 
 function App() {
   // Initialize the loggedin state as false
@@ -33,12 +36,13 @@ function App() {
 
   return (
     <Router>
-      <Navbar loggedin={loggedin} handleLogout={handleLogout} />
+      {loggedin ? (null) : (<Navbar loggedin={loggedin} handleLogout={handleLogout} />)}
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login handleLogin={handleLogin} />} />
         <Route path="/signup" element={<Registration />} />
-        <Route path="/dashboard" element={<Dashboard loggedin={loggedin} />} />
+        <Route path="/dashboard" element={<AnalyticDashboard loggedin={loggedin} />} />
         <Route path="/dstrn-create" element={<DissertationForm loggedin={loggedin} />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/mydissertations" element={<MyDisserations loggedin={loggedin} />} />
