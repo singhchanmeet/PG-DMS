@@ -33,12 +33,9 @@ class _DissertationDetailsState extends State<DissertationDetails> {
   }
 
   _retrieveDissertationDetails() async {
-    final token = await storage.read(key: 'access_token');
-    final response = await widget.client.get(
-        retrieveDissertationDetailsUrl(widget.pk),
-        headers: <String, String>{
-          'Authorization': 'Bearer $token',
-        });
+    // final token = await storage.read(key: 'access_token');
+    final response =
+        await widget.client.get(retrieveDissertationDetailsUrl(widget.pk));
     // creating a map from the data received
     Map<String, dynamic> responseBody =
         json.decode(response.body); // taking response in json format
