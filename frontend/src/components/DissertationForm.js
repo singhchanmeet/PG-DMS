@@ -72,7 +72,7 @@ const DissertationForm = () => {
   return (
     <form onSubmit={handleSubmit} className=' w-[90%] m-auto' encType="multipart/form-data">
       <div className="mb-4">
-        <label className="block text-gray-700">Title:</label>
+        <label className="text-pink-700 font-semibold p-1">Title:</label>
         <input
           type="text"
           name="title"
@@ -82,7 +82,7 @@ const DissertationForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Author Name:</label>
+        <label className="text-pink-700 font-semibold p-1">Author Name:</label>
         <input
           type="text"
           name="author_name"
@@ -92,7 +92,7 @@ const DissertationForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Journal Name:</label>
+        <label className="text-pink-700 font-semibold p-1">Journal Name:</label>
         <input
           type="text"
           name="journal_name"
@@ -102,7 +102,7 @@ const DissertationForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Institute:</label>
+        <label className="text-pink-700 font-semibold p-1">Institute:</label>
         <input
           type="text"
           name="institute"
@@ -113,7 +113,7 @@ const DissertationForm = () => {
       </div>
       {/* Add input fields for other dissertation attributes */}
       <div className="mb-4">
-        <label className="block text-gray-700">Medical System:</label>
+        <label className="text-pink-700 font-semibold p-1">Medical System:</label>
         <select
           name="medical_system"
           value={formData.medical_system}
@@ -130,7 +130,7 @@ const DissertationForm = () => {
         </select>
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Category:</label>
+        <label className="text-pink-700 font-semibold p-1">Category:</label>
         <select
           name="category"
           value={formData.category}
@@ -147,7 +147,7 @@ const DissertationForm = () => {
         </select>
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Keywords (if any):</label>
+        <label className="text-pink-700 font-semibold p-1">Keywords (if any):</label>
         <input
           type="text"
           name="keywords"
@@ -157,7 +157,7 @@ const DissertationForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Abstract:</label>
+        <label className="text-pink-700 font-semibold p-1">Abstract:</label>
         <input
           type="text"
           name="abstract"
@@ -167,7 +167,7 @@ const DissertationForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Related Diseases (if any):</label>
+        <label className="text-pink-700 font-semibold p-1">Related Diseases (if any):</label>
         <input
           type="text"
           name="disease_related"
@@ -177,7 +177,7 @@ const DissertationForm = () => {
         />
       </div>
       <div className="mb-4">
-        <label className="block text-gray-700">Full Paper (PDF):</label>
+        <label className="text-pink-700 font-semibold p-1">Full Paper (PDF):</label>
         <input
           type="file"
           accept='application/pdf'

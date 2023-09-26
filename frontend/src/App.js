@@ -22,6 +22,7 @@ import Evaluation from './components/Evaluation';
 import Publications from './components/Publications';
 import Help from './components/Help';
 import ErrorPage from './components/ErrorPage';
+import Managedstrn from './components/Managedstrn';
 
 function App() {
   // Initialize the loggedin state as false
@@ -49,7 +50,6 @@ function App() {
         <Route path="/login" element={<Login handleLogin={handleLogin} />} />
         <Route path="/signup" element={<Registration />} />        
         <Route path="/dashboard" element={<Dashboard handleLogout = {handleLogout} loggedin={loggedin} />} />
-        <Route path="/dstrn-create" element={<DissertationForm loggedin={loggedin} />} />
         <Route path="/explore" element={<Explore loggedin  = {loggedin}/>} />
         <Route path="/mydissertations" element={<MyDisserations loggedin={loggedin} />} />
         <Route path="/dissertations/:dissertationId" element={<DissertationDetail />} />
@@ -59,6 +59,7 @@ function App() {
         <Route path="/evaluation" element={<Evaluation loggedin={loggedin} />} />
         <Route path="/publication" element={<Publications loggedin={loggedin} />} />
         <Route path="/help" element={<Help loggedin={loggedin} />} />
+        <Route path="/managedstrn" element={<Managedstrn loggedin={loggedin} />} />
         <Route path="/error" element={<ErrorPage />} />
         {/* Add more routes as needed */}
       </Routes>
