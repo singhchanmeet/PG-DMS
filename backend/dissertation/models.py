@@ -47,6 +47,10 @@ class Dissertation(models.Model):
     disease_related = models.CharField(max_length=256, blank=True)
     keywords = models.CharField(max_length=256, blank=True)
     full_paper = models.FileField(upload_to=rename_papers, blank=True)
+    guide_feedback = models.TextField()
+    university_feedback = models.TextField()
+    approved = models.BooleanField(default=False)
+    published = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
 

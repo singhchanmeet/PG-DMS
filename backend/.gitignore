@@ -6,4 +6,5 @@
 
 backend/**/__pycache__/
 *.sqlite
-*.db
+*.sqlite3
+db.sqlite3

@@ -5,10 +5,16 @@ import { Link } from 'react-router-dom';
 const LatestAddedThesis = () => {
     const [dissertations, setDissertations] = useState([]);
     const [news, setNews] = useState([]);
+    const accessToken = localStorage.getItem('accessToken');
 
     useEffect(() => {
         // Fetch the latest dissertations
-        axios.get('http://localhost:8000/dissertation/get-all/')
+        axios.get('http://localhost:8000/dissertation/get/', {
+            headers: {
+              'Authorization': `Bearer ${accessToken}`, // Add the token to the 'Authorization' header
+              'Content-Type': 'application/json', // Adjust headers as needed
+            }
+          })
             .then((response) => {
                 setDissertations(response.data);
             })
@@ -51,6 +57,7 @@ const LatestAddedThesis = () => {
                                 <td className='border-r-2 px-2'>
                                 </td>
                                 <td className=' px-2'>
+                                {dissertation.created_at.slice(0, 10)}
                                 </td>
                             </tr>
                         ))}

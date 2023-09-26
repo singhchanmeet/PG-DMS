@@ -26,12 +26,12 @@ class CreateStudent(APIView):
                     "user_id": request.data['user_id'],
                     "name": request.data['name'],
                     "email": request.data['email'],
-                    "role": "GUIDE",
+                    "role": "STUDENT",
                     "password": request.data['password']
                 },   #foreign key for User table
                 'name': request.data['name'],
                 'university': University.objects.filter(id = request.user).first(),     #currently logged in university
-                'guide': Guide.objects.filter(id = User.objects.filter(user_id = request.data['guide_id']).first())  #linking to a Guide object whose id itself is a User object whose user_id is coming from frontend
+                'guide': Guide.objects.filter(id = User.objects.filter(user_id = request.data.get('guide_id')).first()).first()  #linking to a Guide object whose id itself is a User object whose user_id is coming from frontend
             }
 
             # Serialize using StudentSerializer for validation and saving

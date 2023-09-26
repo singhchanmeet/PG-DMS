@@ -22,5 +22,5 @@ urlpatterns = [
     path('dissertation/', include('dissertation.urls')),   # for dissertation
     path('university/', include('university.urls')),   # for university
     path('guide/', include('guide.urls')),   # for guide
-    # path('student/', include('student.urls')),   # for student
+    path('student/', include('student.urls')),   # for student
 ]
