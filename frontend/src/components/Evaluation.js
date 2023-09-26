@@ -17,29 +17,54 @@ const Evaluation = ({ loggedin }) => {
     const accessToken = localStorage.getItem('accessToken');
 
     useEffect(() => {
-        // Fetch the latest dissertations
-        axios.get('http://localhost:8000/dissertation/get/', {
-            headers: {
-              'Authorization': `Bearer ${accessToken}`, // Add the token to the 'Authorization' header
-              'Content-Type': 'application/json', // Adjust headers as needed
+        // Fetch data based on the active section
+        const fetchData = async () => {
+            try {
+                if (activeSection === 'pendingApprovals') {
+                    // Fetch data for 'pendingApprovals'
+                    const response = await axios.get('http://localhost:8000/dissertation/pending-approvals/', {
+                        headers: {
+                            'Authorization': `Bearer ${accessToken}`,
+                            'Content-Type': 'application/json',
+                        },
+                    });
+                    setDissertations(response.data);
+                } else if (activeSection === 'pendingPublications') {
+                    // Fetch data for 'pendingPublications'
+                    const response = await axios.get('http://localhost:8000/dissertation/pending-publications/', {
+                        headers: {
+                            'Authorization': `Bearer ${accessToken}`,
+                            'Content-Type': 'application/json',
+                        },
+                    });
+                    setDissertations(response.data);
+                } else if (activeSection === 'completedApprovals') {
+                    // Fetch data for 'completedApprovals'
+                    const response = await axios.get('http://localhost:8000/dissertation/completed-approvals/', {
+                        headers: {
+                            'Authorization': `Bearer ${accessToken}`,
+                            'Content-Type': 'application/json',
+                        },
+                    });
+                    setDissertations(response.data);
+                } else if (activeSection === 'completedPublications') {
+                    // Fetch data for 'completedPublications'
+                    const response = await axios.get('http://localhost:8000/dissertation/completed-publications/', {
+                        headers: {
+                            'Authorization': `Bearer ${accessToken}`,
+                            'Content-Type': 'application/json',
+                        },
+                    });
+                    setDissertations(response.data);
+                }
+            } catch (error) {
+                console.error('Error fetching data:', error);
             }
-          })
-            .then((response) => {
-                setDissertations(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching latest dissertations:', error);
-            });
+        };
 
-        // Fetch news articles
-        axios.get('/api/news')
-            .then((response) => {
-                setNews(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching news:', error);
-            });
-    }, []);
+        fetchData();
+    }, [activeSection, accessToken]);
+
     // Check if the user is not logged in, then render the ErrorPage
     if (!loggedin) {
         return <ErrorPage />;
@@ -153,7 +178,7 @@ const Evaluation = ({ loggedin }) => {
                                                             <Link to={`/dissertations/${dissertation.article_id}`} className="text-purple-700 hover:underline font-mono hover:text-pink-600">
                                                                 Publish-&gt;
                                                             </Link>                                                </td>
-                                                        <td className=' px-2'>
+                                                        <td className=' px-2'>{dissertation.created_at.slice(0, 10)}
                                                         </td>
                                                     </tr>
                                                 ))}
@@ -192,7 +217,7 @@ const Evaluation = ({ loggedin }) => {
                                                         </td>
                                                         <td className='border-r-2 px-2'>
                                                         </td>
-                                                        <td className=' px-2'>
+                                                        <td className=' px-2'>{dissertation.created_at.slice(0, 10)}
                                                         </td>
                                                     </tr>
                                                 ))}
@@ -231,7 +256,7 @@ const Evaluation = ({ loggedin }) => {
                                                         </td>
                                                         <td className='border-r-2 px-2'>
                                                         </td>
-                                                        <td className=' px-2'>
+                                                        <td className=' px-2'>{dissertation.created_at.slice(0, 10)}
                                                         </td>
                                                     </tr>
                                                 ))}

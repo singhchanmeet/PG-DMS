@@ -48,7 +48,7 @@ class GetDissertations(APIView):
 # to get all dissertations of a particular user - whether university, guide, or student
 class GetUserDissertations(APIView):
    
-    permission_classes = (IsAuthenticated,)
+    # permission_classes = (IsAuthenticated,)
 
     def get(self, request):
         # username = request.user.name
@@ -73,3 +73,126 @@ class DeleteDissertation(APIView):
         dissertation = Dissertation.objects.all().filter(article_id = pk)
         dissertation.delete()
         return Response({'deleted dissertation successfully'}, status=status.HTTP_200_OK)
+    
+
+# working for both uni and guide
+class GiveFeedback(APIView):
+   
+    # permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        # username = request.user.name
+        dissertation = Dissertation.objects.filter(article_id = request.data['article_id']).first()
+        if (request.user.role == 'GUIDE'):
+            dissertation.guide_feedback = request.data['feedback'] 
+        elif (request.user.role == 'UNIVERSITY'):
+            dissertation.university_feedback = request.data['feedback'] 
+        dissertation.save()
+        return Response({'Feedback submitted successfully'}, status=status.HTTP_200_OK)
+    
+# working for both uni and guide
+class GiveApproval(APIView):
+   
+    # permission_classes = (IsAuthenticated,)
+
+    def post(self, request):
+        # username = request.user.name
+        dissertation = Dissertation.objects.filter(article_id = request.data['article_id']).first()
+        if (request.user.role == 'GUIDE'):
+            dissertation.approved_by_guide = request.data['approve'] 
+        elif (request.user.role == 'UNIVERSITY'):
+            dissertation.approved_by_university = request.data['approve'] 
+        dissertation.save()
+        return Response({'Approval given/rejected successfully'}, status=status.HTTP_200_OK)
+    
+
+# working for both uni and guide
+class PendingApprovals(APIView):
+   
+    # permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        if request.user.role == 'GUIDE':
+            all_dissertations = Dissertation.objects.filter(author_id = request.user, approved_by_guide = False)
+        elif request.user.role == 'UNIVERSITY':
+            all_dissertations = Dissertation.objects.filter(author_id = request.user, approved_by_university = False)
+        serializer = DissertationSerializer(all_dissertations, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+# working for both uni and guide
+class CompletedApprovals(APIView):
+   
+    # permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        if request.user.role == 'GUIDE':
+            all_dissertations = Dissertation.objects.filter(author_id = request.user, approved_by_guide = True)
+        elif request.user.role == 'UNIVERSITY':
+            all_dissertations = Dissertation.objects.filter(author_id = request.user, approved_by_university = True)
+        serializer = DissertationSerializer(all_dissertations, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
+# working for both uni and guide
+class PendingPublications(APIView):
+   
+    # permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        
+        all_dissertations = Dissertation.objects.filter(author_id = request.user, published = False)
+        serializer = DissertationSerializer(all_dissertations, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+# working for both uni and guide
+class CompletedPublications(APIView):
+   
+    # permission_classes = (IsAuthenticated,)
+
+    def get(self, request):
+        
+        all_dissertations = Dissertation.objects.filter(author_id = request.user, published = True)
+        serializer = DissertationSerializer(all_dissertations, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+# working without login for explore page
+class AllCompletedPublications(APIView):
+
+    def get(self, request):
+        
+        all_dissertations = Dissertation.objects.filter(published = True)
+        serializer = DissertationSerializer(all_dissertations, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+
+class CategoryFilter(APIView):
+
+    def get(self, request):
+        
+        all_dissertations = Dissertation.objects.filter(category = request.data.get('category'))
+        serializer = DissertationSerializer(all_dissertations, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class MedicalSystemFilter(APIView):
+
+    def get(self, request):
+        
+        all_dissertations = Dissertation.objects.filter(medical_system = request.data.get('medical_system'))
+        serializer = DissertationSerializer(all_dissertations, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class KeywordSearch(APIView):
+
+    def get(self, request):
+        
+        all_dissertations = Dissertation.objects.filter(keywords__icontains = request.data.get('keywords'))
+        serializer = DissertationSerializer(all_dissertations, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+class TitleSearch(APIView):
+
+    def get(self, request):
+        
+        all_dissertations = Dissertation.objects.filter(title__icontains = request.data.get('title'))
+        serializer = DissertationSerializer(all_dissertations, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
