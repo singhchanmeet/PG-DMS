@@ -64,7 +64,7 @@ const Explore = ({ loggedin }) => {
         </Link>
       </div>
         <Link to={'/dashboard'}>
-          <span className='text-pink-700 font-semibold text-xl'>Dashboard</span>
+          <span className='border-2 border-pink-700  p-1 rounded text-pink-700 font-semibold text-xl'>Dashboard</span>
         </Link>
         <AnalyticNavbar />
       </div>

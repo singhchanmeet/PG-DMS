@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import ErrorPage from './ErrorPage';
 
-const Evaluation = ({ loggedin }) => {
+const Evaluation = ({ loggedin,handleLogout }) => {
     const [activeSection, setActiveSection] = useState('pendingApprovals');
 
     const handleSectionChange = (section) => {
@@ -42,7 +42,7 @@ const Evaluation = ({ loggedin }) => {
         <div className=''>
             <div className='flex'>
                 <div className=''>
-                    <SidePanel />
+                    <SidePanel handleLogout={handleLogout} />
                 </div>
                 <div className="flex-[70%] bg-blue-50">
                     <AnalyticNavbar />

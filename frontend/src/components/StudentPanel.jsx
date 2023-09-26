@@ -9,12 +9,7 @@ const StudentPanel = ({loggedin , handleLogout}) => {
     const handleLogoutclick = async () => {
       try {
         // Make a POST request to the logout endpoint
-        axios.get('http://localhost:8000/auth/user-details/', {
-          headers: {
-            'Authorization': `Bearer ${accessToken}`, // Add the token to the 'Authorization' header
-            'Content-Type': 'application/json', // Adjust headers as needed
-          }
-        });
+        
         // Remove the access token from localStorage
         localStorage.removeItem('accessToken');
   
@@ -41,6 +36,7 @@ const StudentPanel = ({loggedin , handleLogout}) => {
         <br /><br />
         <div className='flex flex-col gap-3'>
           <Link to={'/managedstrn'}><button className=' ml-5 px-2 rounded py-1 hover:bg-slate-300 text-left hover:text-blue-600 focus:text-blue-600 focus:bg-blue-50 '>Manage Dissertations</button></Link>
+          <Link to={'/feedbacks'}><button className=' ml-5 px-2 rounded py-1 hover:bg-slate-300 text-left hover:text-blue-600 focus:text-blue-600 focus:bg-blue-50 '>Feedbacks/Inbox</button></Link>
           <Link to={'/mydissertations'}><button className=' ml-5 px-2 rounded py-1 hover:bg-slate-300 text-left hover:text-blue-600 focus:text-blue-600 focus:bg-blue-50 '>My Dissertations</button></Link>
           <Link to={'/help'}><button className=' ml-5 px-2 rounded py-1 hover:bg-slate-300 text-left hover:text-blue-600 focus:text-blue-600 focus:bg-blue-50 '>Help and Support</button></Link>
           <Link to={'/services'}><button className=' ml-5 px-2 rounded py-1 hover:bg-slate-300 text-left hover:text-blue-600 focus:text-blue-600 focus:bg-blue-50 '>Services</button></Link>
