@@ -31,12 +31,12 @@ const Login = ({ handleLogin }) => {
   
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
-        <h2 className="text-3xl font-bold mb-4 text-center">Login Page</h2>
+    <div className="min-h-screen flex flex-col items-center justify-center ">
+      <div className="p-8 rounded-lg shadow-md max-w-md w-full bg-zinc-100">
+        <h2 className="text-3xl font-bold mb-4 text-center text-pink-700">Login Page</h2>
         <form>
           <div className="mb-4">
-            <label className="block text-gray-700">User ID:</label>
+            <label className="block text-pink-700">User ID:</label>
             <input
               type="text"
               placeholder="User ID"
@@ -48,7 +48,7 @@ const Login = ({ handleLogin }) => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700">Password:</label>
+            <label className="block text-pink-700">Password:</label>
             <input
               type="password"
               placeholder="Password"
@@ -64,7 +64,7 @@ const Login = ({ handleLogin }) => {
           <button
             type="button"
             onClick={handleLoginClick}
-            className="w-full bg-blue-500 text-white hover:bg-blue-600 py-2 rounded-md focus:outline-none"
+            className="w-full bg-pink-700 text-white hover:bg-pink-600 py-2 rounded-md focus:outline-none"
           >
             Login
           </button>

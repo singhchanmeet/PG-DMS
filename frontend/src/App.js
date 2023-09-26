@@ -35,7 +35,7 @@ function App() {
 
   // Function to set loggedin state to false (for logout, if needed)
   const handleLogout = () => {
-    localStorage.removeItem('loggedin'); // Remove the key
+  localStorage.removeItem('loggedin'); // Remove the key
   setLoggedin(false); // Update the state
   };
 
@@ -45,9 +45,10 @@ function App() {
       
       <Routes>
         <Route path="/" element={<Home />} />
+        
         <Route path="/login" element={<Login handleLogin={handleLogin} />} />
-        <Route path="/signup" element={<Registration />} />
-        <Route path="/dashboard" element={<AnalyticDashboard loggedin={loggedin} />} />
+        <Route path="/signup" element={<Registration />} />        
+        <Route path="/dashboard" element={<Dashboard handleLogout = {handleLogout} loggedin={loggedin} />} />
         <Route path="/dstrn-create" element={<DissertationForm loggedin={loggedin} />} />
         <Route path="/explore" element={<Explore loggedin  = {loggedin}/>} />
         <Route path="/mydissertations" element={<MyDisserations loggedin={loggedin} />} />

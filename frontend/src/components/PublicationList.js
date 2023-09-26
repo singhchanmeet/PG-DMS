@@ -33,7 +33,7 @@ const PublicationList = () => {
     return (
         <div>
             <div className="mb-4">
-                <h3 className="text-lg font-semibold mb-2">Filter:</h3>
+                <h3 className="text-lg font-semibold mb-2 text-purple-600">Filter:</h3>
                 <div className="flex space-x-4">
                     <input
                         type="text"

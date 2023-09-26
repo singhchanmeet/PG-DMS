@@ -3,8 +3,8 @@ import StudentDashboard from './StudentDashboard';
 import GuideDashboard from './GuideDashboard';
 import UniversityDashboard from './UniversityDashboard';
 import axios from 'axios';
-
-const Dashboard = () => {
+import AnalyticDashboard from './AnalyticDashboard';
+const Dashboard = ({loggedin , handleLogout}) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   console.log(localStorage.getItem('accessToken'))
@@ -42,12 +42,12 @@ const Dashboard = () => {
   const userRole = user.role;
 
   return (
-    <div className='bg-zinc-200'>
-      <h2 className='text-2xl py-3 ml-10 font-mono'>Welcome,<span className=' font-semibold text-red-600'> {user.username}!</span></h2>
+    <div className=''>
+      {/* <h2 className='text-2xl py-3 ml-10 font-mono'>Welcome,<span className=' font-semibold text-red-600'> {user.username}!</span></h2> */}
       {/* Render the appropriate dashboard based on the user's role */}
-      {userRole === 'STUDENT' && <StudentDashboard />}
-      {userRole === 'GUIDE' && <GuideDashboard />}
-      {userRole === 'UNIVERSITY' && <UniversityDashboard />}
+      {userRole === 'STUDENT' && <StudentDashboard loggedin={loggedin} handleLogout={handleLogout}/>}
+      {userRole === 'GUIDE' && <GuideDashboard loggedin={loggedin} handleLogout={handleLogout}/>}
+      {userRole === 'UNIVERSITY' && <AnalyticDashboard loggedin={loggedin} handleLogout={handleLogout}/>}
     </div>
   );
 };

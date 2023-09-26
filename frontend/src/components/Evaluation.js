@@ -3,8 +3,9 @@ import AnalyticNavbar from './AnalyticNavbar';
 import SidePanel from './SidePanel';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import ErrorPage from './ErrorPage';
 
-const Evaluation = () => {
+const Evaluation = ({loggedin}) => {
     const [activeSection, setActiveSection] = useState('pendingApprovals');
 
     const handleSectionChange = (section) => {
@@ -33,7 +34,10 @@ const Evaluation = () => {
                 console.error('Error fetching news:', error);
             });
     }, []);
-
+    // Check if the user is not logged in, then render the ErrorPage
+  if (!loggedin) {
+    return <ErrorPage />;
+  }
     return (
         <div className=''>
             <div className='flex'>

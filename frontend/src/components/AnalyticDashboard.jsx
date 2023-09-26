@@ -7,7 +7,7 @@ import LatestAddedThesis from './LatestAddedThesis';
 import ErrorPage from './ErrorPage';
 import { useNavigate } from 'react-router-dom';
 
-const AnalyticDashboard = ({ loggedin }) => {
+const AnalyticDashboard = ({ loggedin ,handleLogout}) => {
   const navigate = useNavigate();
 
   // Check if the user is not logged in, then render the ErrorPage

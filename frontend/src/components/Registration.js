@@ -29,7 +29,8 @@ const Registration = () => {
       const response = await axios.post('http://localhost:8000/auth/signup/', formData);
       console.log('Registration successful:', response.data);
       // Redirect to the login page after successful registration
-      navigate('/login');
+      navigate('/dashboard');
+      alert("User created successfully.")
     } catch (error) {
       console.error('Registration failed:', error);
     }

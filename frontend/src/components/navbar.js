@@ -32,7 +32,7 @@ const Navbar = ({ loggedin, handleLogout }) => {
 
   return (
     <>
-    <nav className="bg-blue-500 p-4">
+    <nav className="bg-pink-500 p-4">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-white text-xl font-bold">Dissertation Portal</Link>
         <ul className="flex space-x-4">
