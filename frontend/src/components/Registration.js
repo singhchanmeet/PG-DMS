@@ -25,12 +25,31 @@ const Registration = () => {
     e.preventDefault();
 
     try {
+      const accessToken = localStorage.getItem('accessToken');
       // Send the registration data to the backend for processing
-      const response = await axios.post('http://localhost:8000/auth/signup/', formData);
-      console.log('Registration successful:', response.data);
-      // Redirect to the login page after successful registration
-      navigate('/dashboard');
-      alert("User created successfully.")
+      if (formData.role === 'STUDENT'){
+        const response = await axios.post('http://localhost:8000/student/create/', formData, {
+          headers: {
+            'Authorization': `Bearer ${accessToken}`, // Add the token to the 'Authorization' header
+            'Content-Type': 'application/json', // Adjust headers as needed
+          }
+        });
+        console.log('Registration successful:', response.data);
+        // Redirect to the login page after successful registration
+        navigate('/dashboard');
+        alert("Student created successfully.")
+      } else{
+        const response = await axios.post('http://localhost:8000/guide/create/', formData, {
+          headers: {
+            'Authorization': `Bearer ${accessToken}`, // Add the token to the 'Authorization' header
+            'Content-Type': 'application/json', // Adjust headers as needed
+          }
+        });
+        console.log('Registration successful:', response.data);
+        // Redirect to the login page after successful registration
+        navigate('/dashboard');
+        alert("Guide created successfully.")
+      }
     } catch (error) {
       console.error('Registration failed:', error);
     }

@@ -24,7 +24,7 @@ const RegistrationUni = () => {
 
     try {
       // Send the registration data to the backend for processing
-      const response = await axios.post('http://localhost:8000/auth/signup/', formData);
+      const response = await axios.post('http://localhost:8000/university/create/', formData);
       console.log('Registration successful:', response.data);
       // Redirect to the login page after successful registration
       navigate('/login');
