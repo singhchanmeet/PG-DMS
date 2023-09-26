@@ -1,10 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import NewsCarousel from './NewsCarousel';
+import news1 from '../assets/news1.jpg'
+import news2 from '../assets/news2.png'
+import news3 from '../assets/news3.jpg'
+import Publications from './Publications';
+import PublicationList from './PublicationList';
+import AnalyticNavbar from './AnalyticNavbar';
 
-const Explore = () => {
+const Explore = ({loggedin}) => {
   const [dissertations, setDissertations] = useState([]);
   const [news, setNews] = useState([]);
+
+  const newsItems = [
+    {
+      title: 'News Item 1',
+      imageSrc: {news1}, // Update with the actual path to your image
+      link: 'https://example.com/news1',
+    },
+    {
+      title: 'News Item 2',
+      imageSrc: {news2}, // Update with the actual path to your image
+      link: 'https://example.com/news2',
+    },
+    {
+      title: 'News Item 3',
+      imageSrc: {news3}, // Update with the actual path to your image
+      link: 'https://example.com/news3',
+    },
+    // Add more news items here
+  ];
 
   useEffect(() => {
     // Fetch the latest dissertations
@@ -27,31 +53,52 @@ const Explore = () => {
   }, []);
 
   return (
-    <div className="flex">
-      <div className="w-3/4 p-4">
-        <h2 className="text-2xl font-semibold mb-4">Latest Dissertations</h2>
-        <ul>
-          {dissertations.map((dissertation) => (
-            <li key={dissertation.article_id} className="mb-2">
-              <Link to={`/dissertations/${dissertation.article_id}`} className="text-blue-500 hover:underline">
-              {dissertation.article_id}: {dissertation.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="w-1/4 p-4">
-        <h2 className="text-2xl font-semibold mb-4">News</h2>
-        <ul>
-          {news.map((article) => (
-            <li key={article.id} className="mb-2">
-              <a href={article.link} className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
-                {article.title}
+    <div className="bg-gray-100 p-4 shadow-lg rounded ">
+      {loggedin ?<div className='flex items-center justify-between'><Link to={'/dashboard'}><span className='text-pink-700 font-semibold text-xl'>Dashboard</span></Link>  <AnalyticNavbar/></div>:null}
+      <NewsCarousel newsItems = {newsItems}/>
+      <div className="flex justify-between bg-red-50 rounded my-2">
+      <PublicationList/>
+        <div className="w-1/5 p-4">
+          <h2 className="text-2xl font-semibold mb-4">News</h2>
+          {/* Carousel for Latest News */}
+          <div className="mb-4 bg-white p-4 shadow-lg rounded">
+            {/* You can implement a carousel here */}
+            {/* Sample News */}
+            <div className="mb-2">
+              <a href="#" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                News Title 1
               </a>
-            </li>
-          ))}
-        </ul>
+            </div>
+            <div className="mb-2">
+              <a href="#" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                News Title 2
+              </a>
+            </div>
+            <div className="mb-2">
+              <a href="#" className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                News Title 3
+              </a>
+            </div>
+            {/* End of Sample News */}
+          </div>
+          {/* End of Carousel */}
+          {/* News Column */}
+          <div className="bg-white p-4 shadow-lg rounded">
+            <h3 className="text-lg font-semibold mb-2">News Column</h3>
+            <ul>
+              {news.map((article) => (
+                <li key={article.id} className="mb-2">
+                  <a href={article.link} className="text-blue-500 hover:underline" target="_blank" rel="noopener noreferrer">
+                    {article.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {/* End of News Column */}
+        </div>
       </div>
+          
     </div>
   );
 };

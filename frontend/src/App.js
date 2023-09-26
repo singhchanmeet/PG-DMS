@@ -17,6 +17,11 @@ import ManageApproval from './components/ManageApproval';
 import AnalyticDashboard from './components/AnalyticDashboard';
 import AnalyticNavbar from './components/AnalyticNavbar';
 import SidePanel from './components/SidePanel';
+import GraphicalData from './components/GraphicalData';
+import Evaluation from './components/Evaluation';
+import Publications from './components/Publications';
+import Help from './components/Help';
+import ErrorPage from './components/ErrorPage';
 
 function App() {
   // Initialize the loggedin state as false
@@ -36,7 +41,7 @@ function App() {
 
   return (
     <Router>
-      {loggedin ? (null) : (<Navbar loggedin={loggedin} handleLogout={handleLogout} />)}
+      {loggedin ? (null) :(<Navbar loggedin={loggedin} handleLogout={handleLogout} />)}
       
       <Routes>
         <Route path="/" element={<Home />} />
@@ -44,13 +49,16 @@ function App() {
         <Route path="/signup" element={<Registration />} />
         <Route path="/dashboard" element={<AnalyticDashboard loggedin={loggedin} />} />
         <Route path="/dstrn-create" element={<DissertationForm loggedin={loggedin} />} />
-        <Route path="/explore" element={<Explore />} />
+        <Route path="/explore" element={<Explore loggedin  = {loggedin}/>} />
         <Route path="/mydissertations" element={<MyDisserations loggedin={loggedin} />} />
         <Route path="/dissertations/:dissertationId" element={<DissertationDetail />} />
         <Route path="/profile/username" element={<ProfileDetails loggedin={loggedin} />} />
-        <Route path="/my-organization" element={<OrganizationDetails loggedin={loggedin} />} />
+        <Route path="/organization" element={<OrganizationDetails loggedin={loggedin} />} />
         <Route path="/registrationuni" element={< RegistrationUni loggedin={loggedin} />} />
-        <Route path="/manageapproval" element={<ManageApproval loggedin={loggedin} />} />
+        <Route path="/evaluation" element={<Evaluation loggedin={loggedin} />} />
+        <Route path="/publication" element={<Publications loggedin={loggedin} />} />
+        <Route path="/help" element={<Help loggedin={loggedin} />} />
+        <Route path="/error" element={<ErrorPage />} />
         {/* Add more routes as needed */}
       </Routes>
       <Footer />
