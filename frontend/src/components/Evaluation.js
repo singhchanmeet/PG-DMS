@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import ErrorPage from './ErrorPage';
 
-const Evaluation = ({loggedin}) => {
+const Evaluation = ({ loggedin }) => {
     const [activeSection, setActiveSection] = useState('pendingApprovals');
 
     const handleSectionChange = (section) => {
@@ -35,9 +35,9 @@ const Evaluation = ({loggedin}) => {
             });
     }, []);
     // Check if the user is not logged in, then render the ErrorPage
-  if (!loggedin) {
-    return <ErrorPage />;
-  }
+    if (!loggedin) {
+        return <ErrorPage />;
+    }
     return (
         <div className=''>
             <div className='flex'>
@@ -88,20 +88,23 @@ const Evaluation = ({loggedin}) => {
                                                 <tr>
                                                     <th className='text-indigo-500 w-20 text-left border-b-[1px] pb-2 border-r-[1px] px-2 '>ID</th>
                                                     <th className='text-indigo-500 w-52 text-left border-b-[1px] pb-2 border-r-[1px] px-2 '>Title</th>
-                                                    <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-20'>Status</th>
+                                                    <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-32'>Status</th>
                                                     <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-20'>Date</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {dissertations.map((dissertation) => (
                                                     <tr key={dissertation.article_id}>
-                                                        <td className='border-r-2 px-2'>{dissertation.article_id}</td>
+                                                        <td className='border-r-2 px-2 font-mono text-gray-500'>{dissertation.article_id}</td>
                                                         <td className='border-r-2 px-2'>
-                                                            <Link to={`/dissertations/${dissertation.article_id}`} className="text-purple-700 hover:underline ">
+                                                            <Link to={`/dissertations/${dissertation.article_id}`} className="text-gray-700  hover:text-pink-600">
                                                                 {dissertation.title}
                                                             </Link>
                                                         </td>
                                                         <td className='border-r-2 px-2'>
+                                                            <Link to={`/dissertations/${dissertation.article_id}`} className="text-purple-700 hover:underline font-mono hover:text-pink-600">
+                                                                Evaluate-&gt;
+                                                            </Link>
                                                         </td>
                                                         <td className=' px-2'>
                                                         </td>
@@ -126,21 +129,23 @@ const Evaluation = ({loggedin}) => {
                                                 <tr>
                                                     <th className='text-indigo-500 w-20 text-left border-b-[1px] pb-2 border-r-[1px] px-2 '>ID</th>
                                                     <th className='text-indigo-500 w-52 text-left border-b-[1px] pb-2 border-r-[1px] px-2 '>Title</th>
-                                                    <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-20'>Status</th>
+                                                    <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-32'>Status</th>
                                                     <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-20'>Date</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {dissertations.map((dissertation) => (
                                                     <tr key={dissertation.article_id}>
-                                                        <td className='border-r-2 px-2'>{dissertation.article_id}</td>
+                                                        <td className='border-r-2 px-2 font-mono text-gray-500'>{dissertation.article_id}</td>
                                                         <td className='border-r-2 px-2'>
                                                             <Link to={`/dissertations/${dissertation.article_id}`} className="text-purple-700 hover:underline ">
                                                                 {dissertation.title}
                                                             </Link>
                                                         </td>
                                                         <td className='border-r-2 px-2'>
-                                                        </td>
+                                                            <Link to={`/dissertations/${dissertation.article_id}`} className="text-purple-700 hover:underline font-mono hover:text-pink-600">
+                                                                Publish-&gt;
+                                                            </Link>                                                </td>
                                                         <td className=' px-2'>
                                                         </td>
                                                     </tr>
@@ -165,14 +170,14 @@ const Evaluation = ({loggedin}) => {
                                                 <tr>
                                                     <th className='text-indigo-500 w-20 text-left border-b-[1px] pb-2 border-r-[1px] px-2 '>ID</th>
                                                     <th className='text-indigo-500 w-52 text-left border-b-[1px] pb-2 border-r-[1px] px-2 '>Title</th>
-                                                    <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-20'>Status</th>
+                                                    <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-32'>Status</th>
                                                     <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-20'>Date</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {dissertations.map((dissertation) => (
                                                     <tr key={dissertation.article_id}>
-                                                        <td className='border-r-2 px-2'>{dissertation.article_id}</td>
+                                                        <td className='border-r-2 px-2 font-mono text-gray-500'>{dissertation.article_id}</td>
                                                         <td className='border-r-2 px-2'>
                                                             <Link to={`/dissertations/${dissertation.article_id}`} className="text-purple-700 hover:underline ">
                                                                 {dissertation.title}
@@ -204,14 +209,14 @@ const Evaluation = ({loggedin}) => {
                                                 <tr>
                                                     <th className='text-indigo-500 w-20 text-left border-b-[1px] pb-2 border-r-[1px] px-2 '>ID</th>
                                                     <th className='text-indigo-500 w-52 text-left border-b-[1px] pb-2 border-r-[1px] px-2 '>Title</th>
-                                                    <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-20'>Status</th>
+                                                    <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-32'>Status</th>
                                                     <th className='text-indigo-500 text-left border-b-[1px] pb-2 border-r-[1px] px-2 w-20'>Date</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 {dissertations.map((dissertation) => (
                                                     <tr key={dissertation.article_id}>
-                                                        <td className='border-r-2 px-2'>{dissertation.article_id}</td>
+                                                        <td className='border-r-2 px-2 font-mono text-gray-500'>{dissertation.article_id}</td>
                                                         <td className='border-r-2 px-2'>
                                                             <Link to={`/dissertations/${dissertation.article_id}`} className="text-purple-700 hover:underline ">
                                                                 {dissertation.title}

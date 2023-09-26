@@ -32,7 +32,7 @@ const Navbar = ({ loggedin, handleLogout }) => {
 
   return (
     <>
-    <nav className="bg-pink-500 p-4">
+    <nav className="bg-blue-500 p-4">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="text-white text-xl font-bold">Dissertation Portal</Link>
         <ul className="flex space-x-4">
@@ -76,9 +76,9 @@ const Navbar = ({ loggedin, handleLogout }) => {
       </div>
     </nav>
     <div className='bg-purple-100 justify-end px-2 flex gap-2 text-white py-1'>
-      <p className="bg-pink-600 p-1 text-xs font-semibold">Users Registered: 23</p>
-      <p className="bg-pink-600 p-1 text-xs font-semibold">Thesis Published: 23</p>
-      <p className="bg-pink-600 p-1 text-xs font-semibold">Universities: 4</p>
+      <p className="bg-blue-600 p-1 text-xs font-semibold">Users Registered: 23</p>
+      <p className="bg-blue-600 p-1 text-xs font-semibold">Thesis Published: 23</p>
+      <p className="bg-blue-600 p-1 text-xs font-semibold">Universities: 4</p>
     </div>
     </>
   );

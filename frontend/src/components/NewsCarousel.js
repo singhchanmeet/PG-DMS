@@ -23,7 +23,7 @@ const NewsCarousel = () => {
   ];
 
   return (
-    <Carousel className='bg-zinc-400 rounded shadow'
+    <Carousel className='bg-zinc-400 rounded shadow w-[70%] m-auto'
       showStatus={false}
       showIndicators={true}
       showThumbs={false}

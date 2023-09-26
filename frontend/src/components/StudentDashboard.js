@@ -28,7 +28,7 @@ const StudentDashboard = ({ loggedin, handleLogout }) => {
   return (
     <div className='flex'>
       <div className=''>
-        <StudentPanel />
+        <StudentPanel handleLogout={handleLogout}/>
       </div>
       <div className="flex-[70%] bg-blue-50">
         <AnalyticNavbar />

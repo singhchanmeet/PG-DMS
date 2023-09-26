@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import StudentDashboard from './StudentDashboard';
 import GuideDashboard from './GuideDashboard';
-import UniversityDashboard from './UniversityDashboard';
 import axios from 'axios';
 import AnalyticDashboard from './AnalyticDashboard';
+import ErrorPage from './ErrorPage';
 const Dashboard = ({loggedin , handleLogout}) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,13 +31,13 @@ const Dashboard = ({loggedin , handleLogout}) => {
   }, []);
 
   if (loading) {
-    return <p className='text-2xl text-center py-5 text-red-600 font-semibold'>Loading user data...</p>;
+    return <ErrorPage/>
   }
 
   if (!user) {
-    return <p className='text-2xl text-center py-5 text-red-600 font-semibold'>Error loading user data</p>;
+    return <ErrorPage/>
   }
-
+ 
   // Determine the user's role
   const userRole = user.role;
 
