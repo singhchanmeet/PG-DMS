@@ -7,13 +7,6 @@ const Navbar = ({ loggedin, handleLogout }) => {
   const accessToken = localStorage.getItem('accessToken');
   const handleLogoutclick = async () => {
     try {
-      // Make a POST request to the logout endpoint
-      axios.get('http://localhost:8000/auth/user-details/', {
-        headers: {
-          'Authorization': `Bearer ${accessToken}`, // Add the token to the 'Authorization' header
-          'Content-Type': 'application/json', // Adjust headers as needed
-        }
-      });
       // Remove the access token from localStorage
       localStorage.removeItem('accessToken');
 

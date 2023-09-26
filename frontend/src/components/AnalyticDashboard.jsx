@@ -19,7 +19,7 @@ const AnalyticDashboard = ({ loggedin ,handleLogout}) => {
   return (
     <div className='flex'>
       <div className=''>
-        <SidePanel />
+        <SidePanel handleLogout={handleLogout}/>
       </div>
       <div className="flex-[70%] bg-blue-50">
         <AnalyticNavbar />

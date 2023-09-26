@@ -3,15 +3,19 @@ import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
 import SidePanel from './SidePanel';
 import AnalyticNavbar from './AnalyticNavbar';
+import ErrorPage from './ErrorPage';
 
-const DissertationDetail = () => {
+const DissertationDetail = ({ handleLogout, loggedin }) => {
   const [dissertation, setDissertation] = useState(null);
+  const [loading, setLoading] = useState(true);
   const [feedback, setFeedback] = useState('');
   const { dissertationId } = useParams();
-
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
   const accessToken = localStorage.getItem('accessToken');
+
+  // const [user, setUser] = useState(null);
+  // const [loading, setLoading] = useState(true);
+  // const accessToken = localStorage.getItem('accessToken');
 
   const [formData, setFormData] = useState({
     article_id: dissertationId,
@@ -41,6 +45,9 @@ const DissertationDetail = () => {
       .catch((error) => {
         console.error('Error fetching user data:', error);
         setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error fetching user data:', error);
       });
 
     // Fetch details of a single dissertation record
@@ -52,8 +59,11 @@ const DissertationDetail = () => {
       })
       .catch((error) => {
         console.error('Error fetching dissertation:', error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-  }, [dissertationId]);
+  }, [dissertationId, accessToken]);
 
 
   const handleSubmit = async (e) => {
@@ -117,20 +127,41 @@ const DissertationDetail = () => {
     }
   };
 
-  return (
+  if (loading) {
+    return <p>Loading... Please wait</p>
+  }
 
+  if (!user) {
+    return <p>Please wait loading</p>
+  }
+
+  const userRole = user.role;
+
+  // if (!loggedin) {
+  //   return <ErrorPage />;
+  // }
+
+  return (
     <div className="p-4">
-      <div className='flex'>
-        <div className=''>
-          <SidePanel />
-        </div>
+      <div className="flex">
+        
         <div className="flex-[70%] bg-blue-50">
-          <AnalyticNavbar />
+          
           {dissertation ? (
             <div className="bg-white p-4 rounded shadow-lg">
               <Link className='hover:bg-zinc-400 p-2 bg-indigo-500 text-white rounded shadow-lg' to={'/evaluation'}>Go back</Link>
 
               <h2 className="mt-5 text-2xl font-semibold mb-2">Title: {dissertation.title}</h2>
+              <Link
+                className="hover:bg-zinc-400 p-2 bg-indigo-500 text-white rounded shadow-lg"
+                to={'/dashboard'}
+              >
+                Go back
+              </Link>
+
+              <h2 className="mt-5 text-2xl font-semibold mb-2">
+                Title: {dissertation.title}
+              </h2>
               <p className="text-gray-600">Author: {dissertation.author_name}</p>
               <p className="text-gray-600">Abstract: {dissertation.abstract}</p>
               <p className="text-gray-600">Article ID: {dissertation.article_id}</p>
@@ -138,8 +169,12 @@ const DissertationDetail = () => {
 
               {/* Plagiarism Check Report */}
               <div className="mt-4">
-                <h3 className="text-xl font-semibold mb-2">Plagiarism Check Report</h3>
-                <p className="text-gray-600">Plagiarism check result: {dissertation.plagiarism_check_result}</p>
+                <h3 className="text-xl font-semibold mb-2">
+                  Plagiarism Check Report
+                </h3>
+                <p className="text-gray-600">
+                  Plagiarism check result: {dissertation.plagiarism_check_result}
+                </p>
               </div>
 
               {/* Conditional rendering of university feedback */}

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import SidePanel from './SidePanel';
 import AnalyticNavbar from './AnalyticNavbar';
 
-const OrganizationDetails = () => {
+const OrganizationDetails = ({handleLogout}) => {
   const [studentData, setStudentData] = useState([]);
   const [guideData, setGuideData] = useState([]);
   const accessToken = localStorage.getItem('accessToken');
@@ -42,7 +42,7 @@ const OrganizationDetails = () => {
   return (
     <div className='flex'>
       <div className=''>
-        <SidePanel />
+        <SidePanel handleLogout={handleLogout}/>
       </div>
       <div className="flex-[70%] bg-blue-50">
         <AnalyticNavbar />

@@ -31,7 +31,7 @@ const Dashboard = ({loggedin , handleLogout}) => {
   }, []);
 
   if (loading) {
-    return <ErrorPage/>
+    return <p>Loading... Please wait</p>
   }
 
   if (!user) {
@@ -45,9 +45,9 @@ const Dashboard = ({loggedin , handleLogout}) => {
     <div className=''>
       {/* <h2 className='text-2xl py-3 ml-10 font-mono'>Welcome,<span className=' font-semibold text-red-600'> {user.username}!</span></h2> */}
       {/* Render the appropriate dashboard based on the user's role */}
-      {userRole === 'STUDENT' && <StudentDashboard loggedin={loggedin} handleLogout={handleLogout}/>}
-      {userRole === 'GUIDE' && <GuideDashboard loggedin={loggedin} handleLogout={handleLogout}/>}
-      {userRole === 'UNIVERSITY' && <AnalyticDashboard loggedin={loggedin} handleLogout={handleLogout}/>}
+      {userRole === 'STUDENT' && <StudentDashboard  userRole={userRole} loggedin={loggedin} handleLogout={handleLogout}/>}
+      {userRole === 'GUIDE' && <GuideDashboard userRole={userRole} loggedin={loggedin} handleLogout={handleLogout}/>}
+      {userRole === 'UNIVERSITY' && <AnalyticDashboard userRole={userRole} loggedin={loggedin} handleLogout={handleLogout}/>}
     </div>
   );
 };

@@ -39,7 +39,7 @@ const SideGuidePanel = ({ handleLogout , loggedin }) => {
       <br /><br />
       <div className='flex flex-col gap-3'>
         <Link to={'/evaluation'}><button className=' ml-5 px-2 rounded py-1 hover:bg-slate-300 text-left hover:text-blue-600 focus:text-blue-600 focus:bg-blue-50 '>Evaluate Dissertations</button></Link>
-        <Link to={'/studentlist'}><button className=' ml-5 px-2 rounded py-1 hover:bg-slate-300 text-left hover:text-blue-600 focus:text-blue-600 focus:bg-blue-50 '>List of Students</button></Link>
+        <Link to={'/guidestds'}><button className=' ml-5 px-2 rounded py-1 hover:bg-slate-300 text-left hover:text-blue-600 focus:text-blue-600 focus:bg-blue-50 '>List of Students</button></Link>
         <Link to={'/help'}><button className=' ml-5 px-2 rounded py-1 hover:bg-slate-300 text-left hover:text-blue-600 focus:text-blue-600 focus:bg-blue-50 '>Help and Support</button></Link>
         <Link to={'/services'}><button className=' ml-5 px-2 rounded py-1 hover:bg-slate-300 text-left hover:text-blue-600 focus:text-blue-600 focus:bg-blue-50 '>Services</button></Link>
         <Link><button className=' ml-5 px-2 rounded py-1 hover:bg-slate-300 text-left hover:text-blue-600 focus:text-blue-600 focus:bg-blue-50 ' onClick={handleLogoutclick}>Logout</button></Link>
