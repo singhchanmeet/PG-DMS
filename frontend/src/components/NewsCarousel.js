@@ -19,6 +19,16 @@ const NewsCarousel = () => {
       imageSrc: newsImage2,
       link: 'https://example.com/news2',
     },
+    {
+      title: 'News Item 2',
+      imageSrc: newsImage2,
+      link: 'https://example.com/news2',
+    },
+    {
+      title: 'News Item 2',
+      imageSrc: newsImage2,
+      link: 'https://example.com/news2',
+    },
     // Add more news items here
   ];
 

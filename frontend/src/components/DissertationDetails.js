@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import SidePanel from './SidePanel';
 import AnalyticNavbar from './AnalyticNavbar';
 import ErrorPage from './ErrorPage';
+import PlagCheck from './PlagCheck';
 
 const DissertationDetail = ({ handleLogout, loggedin }) => {
   const [dissertation, setDissertation] = useState(null);
@@ -149,9 +150,7 @@ const DissertationDetail = ({ handleLogout, loggedin }) => {
           
           {dissertation ? (
             <div className="bg-white p-4 rounded shadow-lg">
-              <Link className='hover:bg-zinc-400 p-2 bg-indigo-500 text-white rounded shadow-lg' to={'/evaluation'}>Go back</Link>
 
-              <h2 className="mt-5 text-2xl font-semibold mb-2">Title: {dissertation.title}</h2>
               <Link
                 className="hover:bg-zinc-400 p-2 bg-indigo-500 text-white rounded shadow-lg"
                 to={'/dashboard'}
@@ -192,11 +191,12 @@ const DissertationDetail = ({ handleLogout, loggedin }) => {
                   <p className="text-gray-600">{dissertation.guide_feedback}</p>
                 </div>
               )}
+              <PlagCheck/>
 
               {/* Conditional rendering of feedback form and approval/rejection buttons based on user role */}
               {user && user.role !== 'STUDENT' && (
                 <div>
-                  <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
+                  <form onSubmit={handleSubmit} className="max-w-sm">
                     {/* Feedback */}
                     <div className="mt-4">
                       <h3 className="text-xl font-semibold mb-2">Feedback</h3>
@@ -209,16 +209,15 @@ const DissertationDetail = ({ handleLogout, loggedin }) => {
                         onChange={handleChange}
                       />
                     </div>
-                    <div className="text-center">
+                    <div className="">
                       <button
                         type="submit"
-                        className="bg-blue-500 text-white hover:bg-blue-600 rounded px-4 py-2"
+                        className="bg-blue-500 text-white hover:bg-blue-600 rounded px-4 py-2 my-2"
                       >
                         Send Feedback
                       </button>
                     </div>
                   </form>
-
                   {/* Approval/Rejection Buttons */}
                   {/* If not accepted , then we will show the accept button */}
                   {/* If not accepted, then show the accept button */}

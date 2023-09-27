@@ -8,22 +8,22 @@ const GraphicalData = () => {
   Chart.register(CategoryScale);
   const dataSources = {
     dataSource1: {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      labels: ['23 sep', '24 sep', '25 sep', '26 sep', '27 sep'],
       datasets: [
         {
-          label: 'Data Source 1',
-          data: [12, 19, 3, 5, 2],
+          label: 'Thesis Approved',
+          data: [2, 5, 3, 1, 2],
           fill: false,
           borderColor: 'rgba(75,192,192,1)',
         },
       ],
     },
     dataSource2: {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      labels: ['23 sep', '24 sep', '25 sep', '26 sep', '27 sep'],
       datasets: [
         {
-          label: 'Data Source 2',
-          data: [5, 10, 8, 15, 7],
+          label: 'Thesis Published',
+          data: [1, 1, 2, 4, 1],
           fill: false,
           borderColor: 'rgba(255,99,132,1)',
         },

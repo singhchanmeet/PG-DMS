@@ -2,8 +2,10 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view
 from . serializers import DissertationSerializer
 from . models import Dissertation
+from . plag_check import plag_check
 
 
 class CreateDissertation(APIView):
@@ -196,3 +198,18 @@ class TitleSearch(APIView):
         all_dissertations = Dissertation.objects.filter(title__icontains = request.data.get('title'))
         serializer = DissertationSerializer(all_dissertations, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+# @api_view(['GET', 'POST'])
+# def plag_check(request):
+#     pdf = request.FILES.get('dissertation_pdf')
+#     percent_plag = plag_check(pdf)
+#     print(percent_plag)
+#     return Response({'ok': 'ok'}, status=status.HTTP_200_OK)
+
+class PlagCheck(APIView):
+    def post(self, request):
+        print('ok')
+        pdf = request.FILES.get('dissertation_pdf')
+        percent_plag = plag_check(pdf)
+        print(percent_plag)
+        return Response({'percent_plag': percent_plag}, status=status.HTTP_200_OK)

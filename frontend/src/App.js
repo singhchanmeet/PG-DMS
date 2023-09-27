@@ -26,6 +26,7 @@ import Managedstrn from './components/Managedstrn';
 import axios from 'axios';
 import GuideStudents from './components/GuideStudents';
 import Feedback from './components/Feedback';
+import PlagCheck from './components/PlagCheck';
 
 function App() {
   // Initialize the loggedin state as false

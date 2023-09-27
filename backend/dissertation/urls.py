@@ -17,5 +17,7 @@ urlpatterns = [
     path('category-filter/', views.CategoryFilter.as_view(), name='category_filter'),
     path('medical-system-filter/', views.MedicalSystemFilter.as_view(), name='medical_system_filter'),
     path('search-keyword/', views.KeywordSearch.as_view(), name='search_keyword'),
-    path('search-title/', views.TitleSearch.as_view(), name='search_title'),
+    path('search-title/', views.TitleSearch.as_view(), name='search_title'),    
+    path('plag-check/', views.PlagCheck.as_view(), name='plag_check'),    
+
 ]

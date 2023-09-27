@@ -718,3 +718,425 @@ Traceback (most recent call last):
                                                                ~~~~~~~~~~~~^^^^^^^^^^^^
 KeyError: 'category'
 "GET /dissertation/category-filter/ HTTP/1.1" 500 95080
+Internal Server Error: /dissertation/plag-check/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\utils\datastructures.py", line 84, in __getitem__
+    list_ = super().__getitem__(key)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+KeyError: 'dissertation_pdf'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\views.py", line 204, in plag_check
+    pdf = request.FILES['dissertation_pdf']
+          ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\utils\datastructures.py", line 86, in __getitem__
+    raise MultiValueDictKeyError(key)
+django.utils.datastructures.MultiValueDictKeyError: 'dissertation_pdf'
+"GET /dissertation/plag-check/ HTTP/1.1" 500 107283
+Internal Server Error: /dissertation/plag-check/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\views.py", line 205, in plag_check
+    percent_plag = plag_check(pdf)
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 492, in dispatch
+    request = self.initialize_request(request, *args, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 391, in initialize_request
+    return Request(
+           ^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\request.py", line 154, in __init__
+    assert isinstance(request, HttpRequest), (
+AssertionError: The `request` argument must be an instance of `django.http.HttpRequest`, not `builtins.NoneType`.
+"GET /dissertation/plag-check/ HTTP/1.1" 500 121399
+Internal Server Error: /dissertation/plag-check/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\views.py", line 212, in post
+    percent_plag = plag_check(pdf)
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\plag_check.py", line 34, in plag_check
+    reader = PdfReader(file_to_be_checked)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\PyPDF2\_reader.py", line 317, in __init__
+    with open(stream, "rb") as fh:
+         ^^^^^^^^^^^^^^^^^^
+OSError: [Errno 22] Invalid argument: 'https://ayushportal.nic.in/pdf/2026.pdf'
+"POST /dissertation/plag-check/ HTTP/1.1" 500 102607
+Internal Server Error: /dissertation/plag-check/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\views.py", line 212, in post
+    percent_plag = plag_check(pdf)
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\plag_check.py", line 34, in plag_check
+    reader = PdfReader(file_to_be_checked)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\PyPDF2\_reader.py", line 319, in __init__
+    self.read(stream)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\PyPDF2\_reader.py", line 1414, in read
+    self._basic_validation(stream)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\PyPDF2\_reader.py", line 1453, in _basic_validation
+    stream.seek(0, os.SEEK_END)
+    ^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'seek'
+"POST /dissertation/plag-check/ HTTP/1.1" 500 109612
+Internal Server Error: /dissertation/plag-check/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\response.py", line 710, in _error_catcher
+    yield
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\response.py", line 835, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(1884160 bytes read, 2628725 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\models.py", line 816, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\response.py", line 940, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\response.py", line 879, in read
+    data = self._raw_read(amt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\response.py", line 813, in _raw_read
+    with self._error_catcher():
+  File "C:\Users\chanm\AppData\Local\Programs\Python\Python311\Lib\contextlib.py", line 155, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\response.py", line 727, in _error_catcher
+    raise ProtocolError(f"Connection broken: {e!r}", e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(1884160 bytes read, 2628725 more expected)', IncompleteRead(1884160 bytes read, 2628725 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\views.py", line 212, in post
+    percent_plag = plag_check(pdf)
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\plag_check.py", line 68, in plag_check
+    response = requests.get(pdf_url)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\sessions.py", line 747, in send
+    r.content
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\models.py", line 899, in content
+    self._content = b"".join(self.iter_content(CONTENT_CHUNK_SIZE)) or b""
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\models.py", line 818, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(1884160 bytes read, 2628725 more expected)', IncompleteRead(1884160 bytes read, 2628725 more expected))
+"POST /dissertation/plag-check/ HTTP/1.1" 500 183084
+Internal Server Error: /dissertation/plag-check/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\util\connection.py", line 85, in create_connection
+    raise err
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\util\connection.py", line 73, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connection.py", line 212, in _new_conn
+    raise ConnectTimeoutError(
+urllib3.exceptions.ConnectTimeoutError: (<urllib3.connection.HTTPSConnection object at 0x000001E67B669890>, 'Connection to ayushportal.nic.in timed out. (connect timeout=None)')
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='ayushportal.nic.in', port=443): Max retries exceeded with url: /pdf/0.pdf (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001E67B669890>, 'Connection to ayushportal.nic.in timed out. (connect timeout=None)'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\views.py", line 212, in post
+    percent_plag = plag_check(pdf)
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\plag_check.py", line 68, in plag_check
+    response = requests.get(pdf_url)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\adapters.py", line 507, in send
+    raise ConnectTimeout(e, request=request)
+requests.exceptions.ConnectTimeout: HTTPSConnectionPool(host='ayushportal.nic.in', port=443): Max retries exceeded with url: /pdf/0.pdf (Caused by ConnectTimeoutError(<urllib3.connection.HTTPSConnection object at 0x000001E67B669890>, 'Connection to ayushportal.nic.in timed out. (connect timeout=None)'))
+"POST /dissertation/plag-check/ HTTP/1.1" 500 203418
+Internal Server Error: /dissertation/plag-check/
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connection.py", line 203, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 962, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connectionpool.py", line 790, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connectionpool.py", line 491, in _make_request
+    raise new_e
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connectionpool.py", line 467, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connectionpool.py", line 1092, in _validate_conn
+    conn.connect()
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connection.py", line 611, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connection.py", line 210, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x000001E67B61EDD0>: Failed to resolve 'ayushportal.nic.in' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\connectionpool.py", line 844, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\urllib3\util\retry.py", line 515, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='ayushportal.nic.in', port=443): Max retries exceeded with url: /pdf/0.pdf (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001E67B61EDD0>: Failed to resolve 'ayushportal.nic.in' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\views.py", line 212, in post
+    percent_plag = plag_check(pdf)
+                   ^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\dissertation\plag_check.py", line 68, in plag_check
+    response = requests.get(pdf_url)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\chanm\OneDrive\Desktop\SIH\PGDSM\backend\myenv\Lib\site-packages\requests\adapters.py", line 519, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='ayushportal.nic.in', port=443): Max retries exceeded with url: /pdf/0.pdf (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001E67B61EDD0>: Failed to resolve 'ayushportal.nic.in' ([Errno 11001] getaddrinfo failed)"))
+"POST /dissertation/plag-check/ HTTP/1.1" 500 200698
