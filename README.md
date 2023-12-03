@@ -1,4 +1,4 @@
-## PG-DMS
+## 📝 PG-DMS
 
 - This Post Graduate - Dissertation Management System (PG - DMS) was made for <a href="https://www.sih.gov.in/sih2023PS">Smart India Hackathon (2023)</a>, problem statement #SIH1341
 - The problem statement asked us to make a central dissertation management system for all the universities/institutes under the <a href="https://ayushportal.nic.in/">Ministry of AYUSH</a>
@@ -9,3 +9,7 @@
 3) Flutter
 4) Tailwind CSS
 5) MariaDB
+
+
+## 👨🏻‍💻 Contributors
+<a href="https://github.com/singhchanmeet"> Chanmeet Singh </a> and <a href="https://github.com/exploring-solver"> Aman Sharma </a> 
