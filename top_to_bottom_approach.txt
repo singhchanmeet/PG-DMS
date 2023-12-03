@@ -1,8 +1,0 @@
-superuser can create universities. for that first they will create a user in users table, then create a university in universities table
-at the time a superuser is creating a university, he will know the no. of guides and students under it (bcoz it is fixed for every academic year)
-this will be done by the django admin panel
-
-then university can manually create guides through their dashboard
-
-then university can manually create students through their dashboard and while creating it, 
-they can manually link each student to a guide OR they can even keep the guide field empty

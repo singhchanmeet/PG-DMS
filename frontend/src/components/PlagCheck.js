@@ -43,6 +43,13 @@ const PlagCheck = () => {
   return (
     <div>
       <form onSubmit={handleSubmit} encType="multipart/form-data">
+          <br />
+          <br />
+          <label htmlFor="dissertation_pdf" className="text-pink-700 font-semibold p-1"> Select the plag check software</label>
+          <select className='border-2 border-gray-600 p-2' name="" id="">
+            <option value="">Default Plagcheck API</option>
+            <option value="">Any Third Party api(Turnitin)</option>
+          </select>
         <div className="mb-4">
           <br />
           <label htmlFor="dissertation_pdf" className="text-pink-700 font-semibold p-1">

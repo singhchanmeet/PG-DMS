@@ -7,6 +7,7 @@ class University(models.Model):
     number_of_students = models.PositiveIntegerField(default=0)
     number_of_guides = models.PositiveIntegerField(default=0)
     number_of_dissertations = models.PositiveIntegerField(default=0)
+    max_stud_guide_ratio = models.PositiveIntegerField(default=10)
     
     def __str__(self):
         return self.name

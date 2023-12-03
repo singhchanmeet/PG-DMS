@@ -9,7 +9,7 @@ const NumberData = () => {
         <div className="info-numbers flex px-2 py-3 bg-blue-500 shadow rounded text-white">
             <div className='flex flex-col '>
                 <p>Total Disserations Under Evaluation</p>
-                <p className='font-bold text-lg'>45</p>
+                <p className='font-bold text-lg'>13</p>
             </div>
             <img className='w-20' src= {graphwave} alt="" />
 
@@ -17,7 +17,7 @@ const NumberData = () => {
         <div className="info-numbers flex px-2 py-3 bg-orange-400 shadow rounded">
             <div className='flex flex-col '>
                 <p>Registered Members</p>
-                <p className='font-bold text-lg'>45</p>
+                <p className='font-bold text-lg'>9</p>
             </div>
             <img className='w-20' src= {graphbar} alt="" />
 
@@ -25,7 +25,7 @@ const NumberData = () => {
         <div className="info-numbers flex px-2 py-3 bg-indigo-400 shadow rounded">
             <div className='flex flex-col '>
                 <p>Total Dissertations Published</p>
-                <p className='font-bold text-lg'>45</p>
+                <p className='font-bold text-lg'>2</p>
             </div>
             <img className='w-20' src= {graphlogo2} alt="" />
 
@@ -33,7 +33,7 @@ const NumberData = () => {
         <div className="info-numbers flex px-2 py-3 bg-pink-400 shadow rounded ">
             <div className='flex flex-col '>
                 <p>Dissertations Ready for Publication</p>
-                <p className='font-bold text-lg'>45</p>
+                <p className='font-bold text-lg'>7</p>
             </div>
             <img className='w-20' src= {graphlogo1} alt="" />
 
